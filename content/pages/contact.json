@@ -14,19 +14,26 @@
         {
           "title": "Get in Touch",
           "lines": [
-            { "icon": "📧", "text": "sales@gaoteng-energy.com" },
-            { "icon": "📞", "text": "+86 xxx xxxx xxxx" },
-            { "icon": "💬", "text": "WhatsApp / WeChat: +86 xxx xxxx xxxx" },
-            { "icon": "🌐", "text": "Skype: gaoteng.export" },
-            { "icon": "📍", "text": "[Your Factory Address], China" }
-          ]
-        },
-        {
-          "title": "Regional Support",
-          "lines": [
-            { "icon": "🇳🇬", "text": "Nigeria: SONCAP & Paystack support" },
-            { "icon": "🇰🇪", "text": "Kenya: KEBS & M-Pesa support" },
-            { "icon": "🇮🇳", "text": "India: BIS, UPI & COD support" }
+            {
+              "icon": "📧",
+              "text": "liana93work@gmail.com"
+            },
+            {
+              "icon": "📞",
+              "text": "+86 139 3826 0031"
+            },
+            {
+              "icon": "💬",
+              "text": "WhatsApp / WeChat: +86 139 3826 0031"
+            },
+            {
+              "icon": "🌐",
+              "text": "Skype: gaoteng.export"
+            },
+            {
+              "icon": "📍",
+              "text": "[Henan], China"
+            }
           ]
         }
       ],
