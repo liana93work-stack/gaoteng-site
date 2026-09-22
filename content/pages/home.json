@@ -8,7 +8,7 @@
       "btn1Link": "solutions.html",
       "btn2Text": "GET A QUOTE",
       "btn2Link": "contact.html",
-      "image": "/content/uploads/front.png"
+      "image": "/content/uploads/优势-背景图2.png"
     },
     {
       "type": "stats",
@@ -18,7 +18,7 @@
           "label": "Years Manufacturing"
         },
         {
-          "num": "500+",
+          "num": "200+",
           "label": "Projects Delivered"
         },
         {
