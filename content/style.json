@@ -3,5 +3,6 @@
   "fontSize": 18,
   "primaryColor": "#87B8D8",
   "bgColor": "#A8C7E0",
-  "heroBg": "/content/uploads/总背景图.webp"
+  "heroBg": "/content/uploads/总背景图.webp",
+  "preset": "energy-green"
 }
