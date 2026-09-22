@@ -315,7 +315,21 @@
     '<link rel="stylesheet" href="/styles.css"/>' +
     '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap"/>' +
     '<style>body{margin:0;-webkit-font-smoothing:antialiased}.gt-chrome{pointer-events:none}' +
-    '.gt-badge{position:fixed;right:14px;bottom:14px;z-index:9999;background:rgba(13,42,77,.85);color:#fff;font:600 11px/1 -apple-system,"Segoe UI",sans-serif;padding:8px 12px;border-radius:999px;letter-spacing:.6px}</style>' +
+    '.gt-badge{position:fixed;right:14px;bottom:14px;z-index:9999;background:rgba(13,42,77,.85);color:#fff;font:600 11px/1 -apple-system,"Segoe UI",sans-serif;padding:8px 12px;border-radius:999px;letter-spacing:.6px}' +
+    /* 配色保险层：即使线上 styles.css 尚未更新（颜色写死），预览也能跟着后台配色实时变 */
+    '.hero{background:linear-gradient(120deg,var(--navy) 0%,var(--navy2) 52%,var(--navy3) 100%)}' +
+    '.dark,.phead{background:linear-gradient(120deg,var(--navy),var(--navy2))}' +
+    '.band{background:linear-gradient(120deg,var(--navy2),var(--navy))}' +
+    '.topbar,.stats,footer{background:var(--navy-deep)}' +
+    'header{background:rgba(var(--navy-rgb),.94)}' +
+    '.menu a.active,.menu a.cta,.btn.blue,.checks li:before{background:var(--blue)}' +
+    '.menu a:hover{background:rgba(var(--blue-rgb),.18)}' +
+    '.sec-head .kick,.card .k{color:var(--blue)}' +
+    '.stats .num{color:var(--blue-lt)}' +
+    '.brand .mark{background:radial-gradient(circle at 34% 30%,var(--blue-lt),var(--blue) 58%,var(--navy))}' +
+    '.hero .globe{background:radial-gradient(circle at 30% 30%,rgba(var(--blue-rgb),.55),rgba(var(--blue-rgb),.14) 46%,transparent 70%)}' +
+    '.hero .arc{border-color:rgba(var(--blue-rgb),.42)}' +
+    '</style>' +
     '</head><body>' +
     '<div class="gt-chrome">' + TOPBAR + '</div>' +
     '<div class="gt-chrome">' + HEADER_HTML + '</div>' +
@@ -363,9 +377,14 @@
     body.style.background = c.bg;
     root.style.setProperty("--blue", c.primary);
     root.style.setProperty("--blue2", darken(c.primary, 0.15));
+    root.style.setProperty("--blue-lt", lighten(c.primary, 0.35));
+    root.style.setProperty("--blue-rgb", hexToRgb(c.primary));
     root.style.setProperty("--navy", c.navy);
     root.style.setProperty("--navy2", lighten(c.navy, 0.14));
     root.style.setProperty("--navy3", lighten(c.navy, 0.04));
+    root.style.setProperty("--navy-deep", darken(c.navy, 0.32));
+    root.style.setProperty("--navy-rgb", hexToRgb(c.navy));
+    root.style.setProperty("--bg", c.bg);
     if (style.heroBg) {
       var hero = doc.querySelector(".hero");
       if (hero && !/photo/.test(hero.className)) {
@@ -393,7 +412,11 @@
      ------------------------------------------------------------------ */
   function previewHTML(mode, d) {
     d = d || {};
-    if (mode === "style") return sectionsHTML(DEMO_SECTIONS);
+    if (mode === "style") {
+      /* 优先显示你真实的首页板块，这样改配色看到的就是自己的网站 */
+      var home = DATA.home && DATA.home.sections;
+      return sectionsHTML((home && home.length) ? home : DEMO_SECTIONS);
+    }
     if (mode === "site" || mode === "nav") {
       return '<div style="padding:70px 0;text-align:center;color:#5b6b83;font:600 14px/1.8 -apple-system,\'Segoe UI\',sans-serif">' +
         '<div style="font-size:44px;margin-bottom:10px">⬆️</div>' +
@@ -526,10 +549,18 @@
      6) 预加载已发布数据（产品/新闻/站点/导航/样式）
      ------------------------------------------------------------------ */
   function loadData() {
-    ["site", "nav", "products", "news", "style"].forEach(function (k) {
-      fetch("/content/" + k + ".json", { cache: "no-store" })
+    var LIST = [
+      ["site", "content/site.json"],
+      ["nav", "content/nav.json"],
+      ["products", "content/products.json"],
+      ["news", "content/news.json"],
+      ["style", "content/style.json"],
+      ["home", "content/pages/home.json"]
+    ];
+    LIST.forEach(function (pair) {
+      fetch("/" + pair[1], { cache: "no-store" })
         .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (v) { DATA[k] = v; })
+        .then(function (v) { DATA[pair[0]] = v; })
         .catch(function () { })
         .then(function () {
           try {
