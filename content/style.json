@@ -1,8 +1,9 @@
 {
   "fontFamily": "'Noto Sans SC', 'Microsoft YaHei', sans-serif",
   "fontSize": 18,
-  "primaryColor": "",
-  "bgColor": "",
+  "primaryColor": "#1173ba",
+  "bgColor": "#afcce1",
   "heroBg": "/content/uploads/总背景图.webp",
-  "preset": "energy-green"
+  "preset": "custom",
+  "navyColor": "#d5dae0"
 }
