@@ -109,7 +109,7 @@
     hero: function (b) {
       var photo = b.image ? " photo" : "";
       var style = 'padding:0';
-      if (b.image) style += ';background-image:linear-gradient(rgba(8,21,44,.62), rgba(8,21,44,.78)), url(' + esc(b.image) + ");background-size:cover;background-position:center";
+      if (b.image) style += ';background-image:linear-gradient(rgba(' + heroRgb() + ',.62), rgba(' + heroRgb() + ',.78)), url(' + esc(b.image) + ");background-size:cover;background-position:center";
       var btns = "";
       if (b.btn1Text) btns += '<a href="' + esc(b.btn1Link || "#") + '" class="btn light">' + esc(b.btn1Text) + "</a>";
       if (b.btn2Text) btns += '<a href="' + esc(b.btn2Link || "#") + '" class="btn outline">' + esc(b.btn2Text) + "</a>";
@@ -299,16 +299,61 @@
     return "#" + [r, g, b].map(function (x) { return ("0" + x.toString(16)).slice(-2); }).join("");
   }
 
+  function lighten(hex, f) {
+    hex = String(hex).replace("#", "");
+    if (hex.length === 3) hex = hex.split("").map(function (c) { return c + c; }).join("");
+    if (hex.length !== 6) return hex;
+    var r = parseInt(hex.substr(0, 2), 16), g = parseInt(hex.substr(2, 2), 16), b = parseInt(hex.substr(4, 2), 16);
+    r = Math.min(255, Math.round(r + (255 - r) * f));
+    g = Math.min(255, Math.round(g + (255 - g) * f));
+    b = Math.min(255, Math.round(b + (255 - b) * f));
+    return "#" + [r, g, b].map(function (x) { return ("0" + x.toString(16)).slice(-2); }).join("");
+  }
+
+  function hexToRgb(hex) {
+    hex = String(hex || "").replace("#", "");
+    if (hex.length === 3) hex = hex.split("").map(function (c) { return c + c; }).join("");
+    if (hex.length !== 6) return "8,21,44";
+    return [0, 2, 4].map(function (i) { return parseInt(hex.substr(i, 2), 16); }).join(",");
+  }
+
+  /* 一键配色方案：选了方案会覆盖下面的自定义颜色 */
+  var PRESETS = {
+    "tech-blue": { primaryColor: "#2f8fff", navyColor: "#08152c", bgColor: "#ffffff" },
+    "energy-green": { primaryColor: "#12b886", navyColor: "#06231a", bgColor: "#ffffff" },
+    "indigo": { primaryColor: "#4f6ef7", navyColor: "#0d1233", bgColor: "#ffffff" },
+    "graphite": { primaryColor: "#3b82f6", navyColor: "#111827", bgColor: "#f7f8fa" }
+  };
+
+  /* 解析后的最终配色，供 hero 兜底图等复用 */
+  var RESOLVED = { primary: "#2f8fff", navy: "#08152c", bg: "#ffffff" };
+
+  /* Hero 图片上的深色遮罩，跟随「深色底」颜色 */
+  function heroRgb() { return hexToRgb(RESOLVED.navy); }
+
   function applyStyle(s) {
     if (!s) return;
     var root = document.documentElement;
+    var preset = s.preset && PRESETS[s.preset];
+    var primary = (preset ? preset.primaryColor : s.primaryColor) || "#2f8fff";
+    var navy = (preset ? preset.navyColor : s.navyColor) || "#08152c";
+    var bg = (preset ? preset.bgColor : s.bgColor) || "#ffffff";
+    RESOLVED = { primary: primary, navy: navy, bg: bg };
+
     if (s.fontFamily) document.body.style.fontFamily = s.fontFamily;
     if (s.fontSize) document.body.style.fontSize = s.fontSize + "px";
-    if (s.bgColor) document.body.style.background = s.bgColor;
-    if (s.primaryColor) {
-      root.style.setProperty("--blue", s.primaryColor);
-      root.style.setProperty("--blue2", darken(s.primaryColor, 0.15));
-    }
+    document.body.style.background = bg;
+
+    root.style.setProperty("--blue", primary);
+    root.style.setProperty("--blue2", darken(primary, 0.15));
+    root.style.setProperty("--blue-lt", lighten(primary, 0.35));
+    root.style.setProperty("--blue-rgb", hexToRgb(primary));
+    root.style.setProperty("--navy", navy);
+    root.style.setProperty("--navy2", lighten(navy, 0.14));
+    root.style.setProperty("--navy3", lighten(navy, 0.04));
+    root.style.setProperty("--navy-deep", darken(navy, 0.32));
+    root.style.setProperty("--navy-rgb", hexToRgb(navy));
+    root.style.setProperty("--bg", bg);
   }
 
   /* 首页背景图（未在 hero 板块单独设置时生效） */
@@ -316,7 +361,8 @@
     if (!s || !s.heroBg) return;
     var hero = document.querySelector(".hero");
     if (hero && !hero.className.match(/photo/)) {
-      hero.style.backgroundImage = "linear-gradient(rgba(8,21,44,.55), rgba(8,21,44,.72)), url(" + s.heroBg + ")";
+      var rgb = hexToRgb(RESOLVED.navy);
+      hero.style.backgroundImage = "linear-gradient(rgba(" + rgb + ",.55), rgba(" + rgb + ",.72)), url(" + s.heroBg + ")";
       hero.style.backgroundSize = "cover";
       hero.style.backgroundPosition = "center";
     }
