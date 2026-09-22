@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "category": "Inverter",
+      "name": "Hybrid Solar Inverter",
+      "icon": "⚡",
+      "description": "3–10kW pure sine wave, high-efficiency MPPT, grid-tie and off-grid modes with app monitoring.",
+      "specs": ["48V DC · 99% MPPT", "WiFi / RS485 monitoring", "Parallel up to 6 units"]
+    },
+    {
+      "category": "Solar Panel",
+      "name": "Monocrystalline Panel",
+      "icon": "☀️",
+      "description": "400W–600W half-cut cells with 21.5%+ efficiency and a 25-year power output warranty.",
+      "specs": ["Half-cut, anti-PID", "IEC 61215 / 61730", "Salt-mist & PID resistant"]
+    },
+    {
+      "category": "Battery",
+      "name": "LiFePO4 Battery",
+      "icon": "🔋",
+      "description": "5–20kWh wall-mount and rack batteries with 6000+ cycles, built-in BMS and IEC 62619 safety.",
+      "specs": ["6000+ cycle life", "Smart BMS protection", "Stackable & scalable"]
+    }
+  ]
+}

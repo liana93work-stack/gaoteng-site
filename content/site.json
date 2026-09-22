@@ -1,0 +1,25 @@
+{
+  "company": "Gaoteng Energy",
+  "tagline": "Solar · Inverter · LiFePO4 Storage",
+  "email": "sales@gaoteng-energy.com",
+  "phone": "+86 xxx xxxx xxxx",
+  "whatsapp": "+86 xxx xxxx xxxx",
+  "address": "[Your City], China",
+  "themeColor": "#1f6dff",
+  "heroTitle": "Reliable Power for Commercial & Industrial Energy",
+  "heroSubtitle": "Scalable energy storage, hybrid inverters and solar solutions engineered to reduce energy costs, enhance resilience, and keep your operations running reliably.",
+  "heroCta": "GET A QUOTE",
+  "stats": [
+    {"num": "30+", "label": "Years Manufacturing"},
+    {"num": "500+", "label": "Projects Delivered"},
+    {"num": "20+", "label": "Countries Served"},
+    {"num": "5yr", "label": "Product Warranty"}
+  ],
+  "why": [
+    {"k": "01", "title": "Own Factory", "text": "Vertically integrated production with strict QC on every cell, board and finished unit."},
+    {"k": "02", "title": "Certified & Safe", "text": "CE, IEC, UL and BIS-ready products with full test reports for smooth customs clearance."},
+    {"k": "03", "title": "OEM / ODM", "text": "Your logo, packaging, voltage spec and firmware — built for your market."}
+  ],
+  "ctaTitle": "Ready to Power Your Project?",
+  "ctaText": "Tell us your load, market and timeline — our engineers will size the right system and send a quotation within 24 hours."
+}

@@ -1,0 +1,82 @@
+backend:
+  name: github
+  repo: liana93work-stack/gaoteng-site
+  branch: main
+  base_url: https://gaoteng-site.pages.dev
+
+locale: zh
+
+media_folder: "content/uploads"
+public_folder: "/content/uploads"
+
+collections:
+  - name: "site"
+    label: "站点设置（联系方式 / 首页文案）"
+    files:
+      - name: "site-config"
+        label: "全局信息"
+        file: "content/site.json"
+        format: json
+        fields:
+          - {label: "公司名称", name: "company", widget: "string"}
+          - {label: "品牌标语", name: "tagline", widget: "string"}
+          - {label: "邮箱", name: "email", widget: "string"}
+          - {label: "电话", name: "phone", widget: "string"}
+          - {label: "WhatsApp", name: "whatsapp", widget: "string"}
+          - {label: "地址", name: "address", widget: "string"}
+          - {label: "主题色(十六进制)", name: "themeColor", widget: "string", hint: "例如 #1f6dff"}
+          - {label: "首页大标题", name: "heroTitle", widget: "string"}
+          - {label: "首页副标题", name: "heroSubtitle", widget: "text"}
+          - {label: "首页按钮文字", name: "heroCta", widget: "string"}
+          - {label: "底部行动标题", name: "ctaTitle", widget: "string"}
+          - {label: "底部行动说明", name: "ctaText", widget: "text"}
+          - label: "首页数据指标"
+            name: "stats"
+            widget: "list"
+            fields:
+              - {label: "数值", name: "num", widget: "string"}
+              - {label: "说明", name: "label", widget: "string"}
+          - label: "优势三点"
+            name: "why"
+            widget: "list"
+            fields:
+              - {label: "编号", name: "k", widget: "string"}
+              - {label: "标题", name: "title", widget: "string"}
+              - {label: "说明", name: "text", widget: "text"}
+
+  - name: "products"
+    label: "产品（首页与产品页卡片）"
+    files:
+      - name: "products"
+        label: "产品列表"
+        file: "content/products.json"
+        format: json
+        fields:
+          - label: "产品"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "类别", name: "category", widget: "string"}
+              - {label: "名称", name: "name", widget: "string"}
+              - {label: "图标(emoji)", name: "icon", widget: "string", hint: "例如 ⚡ ☀️ 🔋"}
+              - {label: "描述", name: "description", widget: "text"}
+              - label: "参数列表"
+                name: "specs"
+                widget: "list"
+                field: {label: "参数", name: "item", widget: "string"}
+
+  - name: "news"
+    label: "新闻 / 博客"
+    files:
+      - name: "news"
+        label: "新闻列表"
+        file: "content/news.json"
+        format: json
+        fields:
+          - label: "新闻"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "日期", name: "date", widget: "date"}
+              - {label: "标题", name: "title", widget: "string"}
+              - {label: "正文", name: "body", widget: "text"}
