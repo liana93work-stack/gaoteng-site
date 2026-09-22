@@ -51,6 +51,46 @@
     return "#" + [r, g, b].map(function (x) { return ("0" + x.toString(16)).slice(-2); }).join("");
   }
 
+  function lighten(hex, f) {
+    hex = String(hex).replace("#", "");
+    if (hex.length === 3) hex = hex.split("").map(function (c) { return c + c; }).join("");
+    if (hex.length !== 6) return hex;
+    var r = parseInt(hex.substr(0, 2), 16), g = parseInt(hex.substr(2, 2), 16), b = parseInt(hex.substr(4, 2), 16);
+    r = Math.min(255, Math.round(r + (255 - r) * f));
+    g = Math.min(255, Math.round(g + (255 - g) * f));
+    b = Math.min(255, Math.round(b + (255 - b) * f));
+    return "#" + [r, g, b].map(function (x) { return ("0" + x.toString(16)).slice(-2); }).join("");
+  }
+
+  function hexToRgb(hex) {
+    hex = String(hex || "").replace("#", "");
+    if (hex.length === 3) hex = hex.split("").map(function (c) { return c + c; }).join("");
+    if (hex.length !== 6) return "8,21,44";
+    return [0, 2, 4].map(function (i) { return parseInt(hex.substr(i, 2), 16); }).join(",");
+  }
+
+  /* 一键配色方案（与前台 render.js 保持一致） */
+  var PRESETS = {
+    "tech-blue": { primaryColor: "#2f8fff", navyColor: "#08152c", bgColor: "#ffffff" },
+    "energy-green": { primaryColor: "#12b886", navyColor: "#06231a", bgColor: "#ffffff" },
+    "indigo": { primaryColor: "#4f6ef7", navyColor: "#0d1233", bgColor: "#ffffff" },
+    "graphite": { primaryColor: "#3b82f6", navyColor: "#111827", bgColor: "#f7f8fa" }
+  };
+
+  function resolveColors(style) {
+    style = style || {};
+    var preset = style.preset && PRESETS[style.preset];
+    return {
+      primary: (preset ? preset.primaryColor : style.primaryColor) || "#2f8fff",
+      navy: (preset ? preset.navyColor : style.navyColor) || "#08152c",
+      bg: (preset ? preset.bgColor : style.bgColor) || "#ffffff"
+    };
+  }
+
+  /* 当前生效的「深色底」，由 applyStyle 写入，供 Hero 图片遮罩复用 */
+  var CUR_NAVY = "#08152c";
+  function heroRgb() { return hexToRgb(CUR_NAVY); }
+
   /* 内置插图（与前台一致，未上传图片时显示） */
   var ART_MACHINE =
     '<svg viewBox="0 0 400 430" width="100%" height="100%" role="img" aria-label="Energy storage products">' +
@@ -117,7 +157,7 @@
     hero: function (b) {
       var photo = b.image ? " photo" : "";
       var style = "padding:0";
-      if (b.image) style += ";background-image:linear-gradient(rgba(8,21,44,.62), rgba(8,21,44,.78)), url(" + esc(b.image) + ");background-size:cover;background-position:center";
+      if (b.image) style += ";background-image:linear-gradient(rgba(" + heroRgb() + ",.62), rgba(" + heroRgb() + ",.78)), url(" + esc(b.image) + ");background-size:cover;background-position:center";
       var btns = "";
       if (b.btn1Text) btns += '<a href="' + esc(b.btn1Link || "#") + '" class="btn light">' + esc(b.btn1Text) + "</a>";
       if (b.btn2Text) btns += '<a href="' + esc(b.btn2Link || "#") + '" class="btn outline">' + esc(b.btn2Text) + "</a>";
@@ -316,17 +356,20 @@
     style = style || DATA.style || {};
     var root = doc.documentElement, body = doc.body;
     if (!body) return;
+    var c = resolveColors(style);
+    CUR_NAVY = c.navy;
     if (style.fontFamily) body.style.fontFamily = style.fontFamily;
     if (style.fontSize) body.style.fontSize = style.fontSize + "px";
-    if (style.bgColor) body.style.background = style.bgColor;
-    if (style.primaryColor) {
-      root.style.setProperty("--blue", style.primaryColor);
-      root.style.setProperty("--blue2", darken(style.primaryColor, 0.15));
-    }
+    body.style.background = c.bg;
+    root.style.setProperty("--blue", c.primary);
+    root.style.setProperty("--blue2", darken(c.primary, 0.15));
+    root.style.setProperty("--navy", c.navy);
+    root.style.setProperty("--navy2", lighten(c.navy, 0.14));
+    root.style.setProperty("--navy3", lighten(c.navy, 0.04));
     if (style.heroBg) {
       var hero = doc.querySelector(".hero");
       if (hero && !/photo/.test(hero.className)) {
-        hero.style.backgroundImage = "linear-gradient(rgba(8,21,44,.55), rgba(8,21,44,.72)), url(" + style.heroBg + ")";
+        hero.style.backgroundImage = "linear-gradient(rgba(" + hexToRgb(c.navy) + ",.55), rgba(" + hexToRgb(c.navy) + ",.72)), url(" + style.heroBg + ")";
         hero.style.backgroundSize = "cover";
         hero.style.backgroundPosition = "center";
       }
@@ -522,7 +565,9 @@
   G.GT_PREVIEW = {
     sectionsHTML: sectionsHTML, previewHTML: previewHTML, SHELL: SHELL, BLOCKS: BLOCKS,
     makePreview: makePreview, REGISTER: REGISTER, el: el, REACT_ELEMENT_TYPE: REACT_ELEMENT_TYPE,
-    LIVE: LIVE, requestPaint: schedulePaint
+    LIVE: LIVE, requestPaint: schedulePaint,
+    applyStyle: applyStyle, resolveColors: resolveColors, PRESETS: PRESETS,
+    darken: darken, lighten: lighten, hexToRgb: hexToRgb
   };
 
   if (typeof CMS !== "undefined" && CMS && CMS.registerPreviewTemplate) {

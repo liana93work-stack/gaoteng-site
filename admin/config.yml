@@ -428,6 +428,34 @@ collections:
               - { label: "系统默认", value: "system-ui, -apple-system, 'Segoe UI', Roboto, 'Microsoft YaHei', sans-serif" }
             hint: "选择整站字体"
           - { label: "基础字号(px)", name: "fontSize", widget: "number", min: 13, max: 20, default: 16, hint: "控制整站基础文字大小（13–20）" }
-          - { label: "主色(十六进制)", name: "primaryColor", widget: "string", hint: "按钮、链接、强调色，例如 #2f8fff 或 #0a8f5b" }
-          - { label: "页面背景色", name: "bgColor", widget: "string", hint: "网页主体背景，例如 #ffffff（白）或 #f4f7fc（浅灰蓝）" }
+          - label: "① 一键配色方案（推荐先选这个）"
+            name: "preset"
+            widget: "select"
+            required: false
+            default: "custom"
+            options:
+              - { label: "深海蓝 · 科技（默认，最稳）", value: "tech-blue" }
+              - { label: "储能绿 · 环保能源", value: "energy-green" }
+              - { label: "印度靛蓝 · 电商感", value: "indigo" }
+              - { label: "石墨灰 · 高端简约", value: "graphite" }
+              - { label: "自定义（用下面②的取色板自己调）", value: "custom" }
+            hint: "选一个方案 = 一键换掉整站主色 + 深色底 + 页面背景。想自己调就选「自定义」"
+          - label: "② 主色（按钮 / 链接 / 强调色）"
+            name: "primaryColor"
+            widget: "color"
+            required: false
+            default: "#2f8fff"
+            hint: "点右侧圆形色块打开取色板。参考：#2f8fff 蓝 · #12b886 绿 · #4f6ef7 靛蓝 · #0ea5e9 天蓝"
+          - label: "② 深色底（导航栏 / 首屏 / 页脚）"
+            name: "navyColor"
+            widget: "color"
+            required: false
+            default: "#08152c"
+            hint: "网站最上方和底部大块深色的底色。参考：#08152c 深海蓝 · #06231a 墨绿 · #0d1233 夜靛 · #111827 石墨"
+          - label: "② 页面背景色"
+            name: "bgColor"
+            widget: "color"
+            required: false
+            default: "#ffffff"
+            hint: "网页主体底色。参考：#ffffff 纯白 · #f4f7fc 浅灰蓝 · #f7f8fa 极浅灰"
           - { label: "首页背景图（默认）", name: "heroBg", widget: "image", required: false, hint: "上传横图作为首页背景；若首页 Hero 板块里单独设了图，以 Hero 为准" }
