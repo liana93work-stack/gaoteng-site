@@ -8,15 +8,27 @@
       "btn1Link": "solutions.html",
       "btn2Text": "GET A QUOTE",
       "btn2Link": "contact.html",
-      "image": ""
+      "image": "/content/uploads/front.png"
     },
     {
       "type": "stats",
       "items": [
-        { "num": "30+", "label": "Years Manufacturing" },
-        { "num": "500+", "label": "Projects Delivered" },
-        { "num": "20+", "label": "Countries Served" },
-        { "num": "5yr", "label": "Product Warranty" }
+        {
+          "num": "30+",
+          "label": "Years Manufacturing"
+        },
+        {
+          "num": "500+",
+          "label": "Projects Delivered"
+        },
+        {
+          "num": "20+",
+          "label": "Countries Served"
+        },
+        {
+          "num": "5yr",
+          "label": "Product Warranty"
+        }
       ]
     },
     {
@@ -29,20 +41,20 @@
       "theme": "soft"
     },
     {
-      "type": "split",
-      "kicker": "Solutions",
-      "title": "Power for Every Scenario",
+      "btnText": "See Solutions",
+      "theme": "soft",
       "text": "Whether you are powering a home, a remote site or a large facility, we size the right combination of inverter, panel and battery to match your load and budget.",
       "bullets": [
         "Residential energy storage & backup",
         "Off-grid cabins, RVs and telecom sites",
         "Commercial & industrial peak shaving"
       ],
-      "btnText": "See Solutions",
-      "btnLink": "solutions.html",
-      "image": "",
       "imageSide": "right",
-      "theme": ""
+      "kicker": "Solutions",
+      "btnLink": "solutions.html",
+      "title": "Power for Every Scenario",
+      "type": "split",
+      "image": ""
     },
     {
       "type": "cards",
