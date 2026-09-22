@@ -23,21 +23,60 @@
   `index.html`、`styles.css`、`content/`（含 site.json / products.json / news.json）、`admin/`（后台入口）、各 html、`robots.txt`、`sitemap.xml`。
 - 仓库里**必须包含 `content/` 和 `admin/` 两个文件夹**，后台才工作。
 
-### 3. Cloudflare Pages 改成"连 GitHub 自动部署"
-- Cloudflare 控制台 → Workers & Pages → 删掉之前那个 `gaoteng-site`（Direct Upload 项目）。
-- 新建 **Create → Pages → 连 GitHub**（授权 Cloudflare 访问 GitHub）→ 选刚建的仓库 → Framework preset 选 **None** → 构建命令留空 → 部署。
-- 此后你一改内容并提交，Cloudflare 自动重新上线。
+### 3. Cloudflare Pages 连上 GitHub（网站自动上线）★ 本项目当前进行到这里
+> ⚠️ **新版 Cloudflare 控制台菜单变了**：`Workers & Pages` 不再直接显示在左侧，它现在在 **Build → Compute** 里面。
+> 两条路找到它：① 点左侧 **Compute**；② 点顶部搜索框输入 `Pages`，选 **Workers & Pages**。
 
-### 4. 建 GitHub OAuth App（让后台能登录）
-- GitHub 头像 → Settings → Developer settings → OAuth Apps → **New OAuth App**。
-- Application name：Gaoteng CMS（随意）
-- Homepage URL：`https://gaoteng-site.pages.dev`（换成你最终网址）
-- **Authorization callback URL：`https://decap-cms.github.io/auth.html`**
-- 创建后拿到 **Client ID**，并 Generate 拿到 **Client secret**（都先记下）。
-- 打开本地的 `website/admin/config.yml`，改两处：
-  - `repo: YOUR_GITHUB_USERNAME/YOUR_REPO_NAME` → 改成你的 `用户名/仓库名`
-  - `base_url: https://gaoteng-site.pages.dev` → 改成你最终网址（用了自定义域名就填自定义域名）
-- 把改好的 `config.yml` 重新上传覆盖到 GitHub 仓库。
+1. 开 VPN，打开 **dash.cloudflare.com** 登录 → 左侧 **Compute** → 进入 **Workers & Pages**。
+2. 如果里面已经有一个叫 `gaoteng-site` 的项目（之前"直接上传"建的），**先删掉它**（进项目 → Settings → 拉到最底 Delete）——否则名字会冲突。没有就跳过。
+
+> ⚠️ 控制台首页那个「Drop a folder, or a zip」是 **Direct Upload（直接上传）**。虽然也能上线拿到免费域名，但那样第 4 步的后台**无法自动部署**，所以**不要走这条路**，要走下面的 **Connect to Git**。
+3. 点 **Create** → 选 **Pages** 标签 → **Connect to Git** → 授权 Cloudflare 访问 GitHub（Authorize）。
+4. 选中仓库 **`liana93work-stack/gaoteng-site`** → **Begin setup**。
+5. 填表（照抄）：
+   - Project name：`gaoteng-site`
+   - Production branch：`main`
+   - Framework preset：**None**
+   - Build command：**留空**
+   - Build output directory：**留空**（或填 `/`）
+6. 点 **Save and Deploy** → 等 1 分钟左右 → 得到网址 **`https://gaoteng-site.pages.dev`**。
+
+✅ 到这里网站已经正式上线。以后你（或后台）一改内容并提交，Cloudflare 会自动重新上线。
+
+### 4. 配置后台登录（自建 OAuth 中转服务）
+Decap 后台要能登录，需要一个"中转服务"把 GitHub 的登录结果传回后台。这个服务用 Cloudflare Worker 免费搭（本项目已写好代码：`oauth-worker/worker.js`）。
+
+**顺序很重要，按 ①→②→③→④ 走：**
+
+**① 先建 Worker（中转服务）**
+- Cloudflare 左侧 **Compute** → **Workers & Pages** → **Create** → 选 **Workers** → **Create Worker**。
+- 名字填 **`gaoteng-cms-auth`** → 点 **Deploy**。
+- 部署后点 **Edit code** → 把 `oauth-worker/worker.js` 的**全部内容**粘贴替换进去 → 右上角 **Deploy**。
+- 记下它的网址，形如：`https://gaoteng-cms-auth.你的子域.workers.dev`
+
+**② 再去建 GitHub OAuth App**
+- GitHub 头像 → **Settings** → 最左拉到底 **Developer settings** → **OAuth Apps** → **New OAuth App**。
+- Application name：`Gaoteng CMS`
+- Homepage URL：`https://gaoteng-site.pages.dev`
+- **Authorization callback URL**：`https://gaoteng-cms-auth.你的子域.workers.dev/callback`（⚠️ 必须和第①步 Worker 网址一致，结尾是 `/callback`）
+- 点 **Register application** → 记下 **Client ID** → 点 **Generate a new client secret** → 记下 **Client secret**（只显示一次，务必先存好）。
+
+**③ 把 ID / Secret 塞回 Worker**
+- 回到 Cloudflare → 打开 `gaoteng-cms-auth` 这个 Worker → **Settings** → **Variables and Secrets** → **Add**：
+  - 名称 `GITHUB_CLIENT_ID`，值 = 第②步的 Client ID，类型选 **Secret**
+  - 名称 `GITHUB_CLIENT_SECRET`，值 = 第②步的 Client Secret，类型选 **Secret**
+- 两个都加好后，回 Worker 的代码页再点一次 **Deploy**（让变量生效）。
+
+**④ 把 Worker 网址写进网站配置**
+- 改 `website/admin/config.yml` 的第一段：
+  ```yaml
+  backend:
+    name: github
+    repo: liana93work-stack/gaoteng-site
+    branch: main
+    base_url: https://gaoteng-cms-auth.你的子域.workers.dev   # ← 换成第①步的真实网址
+  ```
+- 把改好的 `config.yml` 提交到 GitHub 仓库（覆盖原来的）→ Cloudflare 自动重新部署 → 后台就能登录了。
 
 > 这步稍复杂，卡住就把页面截图发我，我一步步带你。
 
@@ -52,7 +91,7 @@
 - 其他样式（字体、间距、布局）：改 `styles.css`（不在后台，发我或你用记事本改后重新上传仓库）。
 
 ## 排错
-- 后台打不开 / 登录转圈：检查 `config.yml` 的 `repo`、`base_url` 是否填对；OAuth App 的 callback 是否 `https://decap-cms.github.io/auth.html`。
+- 后台打不开 / 登录转圈：检查 `config.yml` 的 `repo` 是否 `liana93work-stack/gaoteng-site`；`base_url` 必须是**你自己的 Worker 网址**（形如 `https://gaoteng-cms-auth.xxx.workers.dev`，**不是** pages.dev）；OAuth App 的 callback 必须是 `你的Worker网址/callback`。
 - 改了内容网站没变：等 1–2 分钟自动部署；或在 Cloudflare Pages 看部署是否成功（红色=失败，看日志）。
 - 国内访问 / 登 GitHub 后台：开 VPN。
 

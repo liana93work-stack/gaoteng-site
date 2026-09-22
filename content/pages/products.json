@@ -1,0 +1,67 @@
+{
+  "sections": [
+    {
+      "type": "phead",
+      "crumb": "Home / Products",
+      "title": "Products",
+      "text": "Hybrid inverters, solar panels and LiFePO4 batteries — engineered to work as one system."
+    },
+    {
+      "type": "products",
+      "kicker": "",
+      "title": "",
+      "text": "",
+      "btnText": "",
+      "btnLink": "",
+      "theme": ""
+    },
+    {
+      "type": "table",
+      "kicker": "Category 01",
+      "title": "Hybrid Solar Inverters",
+      "text": "",
+      "headers": ["Model", "Rated Power", "Battery Voltage", "MPPT Range", "Efficiency"],
+      "rows": [
+        { "cells": ["VS-H3K", "3 kW", "24V / 48V", "120–450 V", "98%"] },
+        { "cells": ["VS-H5K", "5 kW", "48V", "120–500 V", "98.5%"] },
+        { "cells": ["VS-H8K", "8 kW", "48V", "150–500 V", "98.5%"] },
+        { "cells": ["VS-H10K", "10 kW", "48V", "150–500 V", "98.5%"] }
+      ],
+      "theme": ""
+    },
+    {
+      "type": "table",
+      "kicker": "Category 02",
+      "title": "Monocrystalline Solar Panels",
+      "text": "",
+      "headers": ["Model", "Max Power", "Efficiency", "Cells", "Warranty"],
+      "rows": [
+        { "cells": ["VS-P400M", "400 W", "20.5%", "108 half-cut", "25 years"] },
+        { "cells": ["VS-P550M", "550 W", "21.3%", "144 half-cut", "25 years"] },
+        { "cells": ["VS-P600M", "600 W", "21.7%", "144 half-cut", "25 years"] }
+      ],
+      "theme": "soft"
+    },
+    {
+      "type": "table",
+      "kicker": "Category 03",
+      "title": "LiFePO4 Battery Storage",
+      "text": "* Specifications are indicative samples — send us your target market and we will confirm the exact model and certification required.",
+      "headers": ["Model", "Capacity", "Voltage", "Cycles", "Mounting"],
+      "rows": [
+        { "cells": ["VS-B5", "5 kWh", "51.2V", "6000+", "Wall"] },
+        { "cells": ["VS-B10", "10 kWh", "51.2V", "6000+", "Wall / Rack"] },
+        { "cells": ["VS-B20", "20 kWh", "51.2V", "6000+", "Rack"] },
+        { "cells": ["VS-BC100", "100 kWh", "512V", "6000+", "Cabinet"] }
+      ],
+      "theme": ""
+    },
+    {
+      "type": "band",
+      "title": "Need a Datasheet or Sample?",
+      "text": "Request the full spec sheet, test reports or a sample unit.",
+      "btnText": "REQUEST QUOTE",
+      "btnLink": "contact.html"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "sections": [
+    {
+      "type": "phead",
+      "crumb": "Home / Markets",
+      "title": "Markets We Serve",
+      "text": "Localized products, certification and payment for Africa & India."
+    },
+    {
+      "type": "split",
+      "kicker": "🇳🇬 Nigeria",
+      "title": "Power Through the Grid Gaps",
+      "text": "With unstable grid supply, Nigerian homes and businesses rely on solar + storage. We supply 48V hybrid inverters and LiFePO4 batteries sized for local loads, with SONCAP documentation support.",
+      "bullets": ["220–240V / 50Hz models", "SONCAP clearance support", "Payment via Paystack / Flutterwave"],
+      "btnText": "",
+      "btnLink": "",
+      "image": "",
+      "imageSide": "right",
+      "theme": ""
+    },
+    {
+      "type": "split",
+      "kicker": "🇰🇪 Kenya",
+      "title": "Solar for Homes & Off-Grid Sites",
+      "text": "Kenya's abundant sunshine makes solar ideal. We support KEBS-certified shipments and mobile-money payment for fast, low-friction ordering.",
+      "bullets": ["M-Pesa payment support", "KEBS certification help", "Off-grid & backup systems"],
+      "btnText": "",
+      "btnLink": "",
+      "image": "",
+      "imageSide": "left",
+      "theme": "soft"
+    },
+    {
+      "type": "split",
+      "kicker": "🇮🇳 India",
+      "title": "Make in India Ready",
+      "text": "India's rooftop solar push is driving huge demand for inverters and storage. We provide BIS-ready products and support UPI / Razorpay payments and Cash on Delivery.",
+      "bullets": ["230V / 50Hz, BIS-ready", "UPI & Razorpay checkout", "COD in supported regions"],
+      "btnText": "",
+      "btnLink": "",
+      "image": "",
+      "imageSide": "right",
+      "theme": ""
+    },
+    {
+      "type": "band",
+      "title": "Distributor or Retailer?",
+      "text": "Ask about regional pricing, containers and local warehouse support.",
+      "btnText": "BECOME A PARTNER",
+      "btnLink": "contact.html"
+    }
+  ]
+}

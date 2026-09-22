@@ -1,49 +1,8 @@
 {
-  "ctaTitle": "Ready to Power Your Project?",
-  "why": [
-    {
-      "k": "01",
-      "title": "Own Factory",
-      "text": "Vertically integrated production with strict QC on every cell, board and finished unit."
-    },
-    {
-      "k": "02",
-      "title": "Certified & Safe",
-      "text": "CE, IEC, UL and BIS-ready products with full test reports for smooth customs clearance."
-    },
-    {
-      "k": "03",
-      "title": "OEM / ODM",
-      "text": "Your logo, packaging, voltage spec and firmware — built for your market."
-    }
-  ],
-  "phone": "+86 139 3826 0031",
-  "tagline": "Solar · Inverter · LiFePO4 Storage",
-  "whatsapp": "+86 139 3826 0031",
-  "heroSubtitle": "Scalable energy storage, hybrid inverters and solar solutions engineered to reduce energy costs, enhance resilience, and keep your operations running reliably.",
-  "address": "[Henan], China",
-  "heroCta": "GET A QUOTE",
-  "themeColor": "#1f6dff",
-  "email": "liana93work@gmail.com",
   "company": "Gaoteng Energy",
-  "ctaText": "Tell us your load, market and timeline — our engineers will size the right system and send a quotation within 24 hours.",
-  "heroTitle": "Reliable power for residential & commercial energy",
-  "stats": [
-    {
-      "num": "30+",
-      "label": "Years Manufacturing"
-    },
-    {
-      "num": "500+",
-      "label": "Projects Delivered"
-    },
-    {
-      "num": "20+",
-      "label": "Countries Served"
-    },
-    {
-      "num": "5yr",
-      "label": "Product Warranty"
-    }
-  ]
+  "tagline": "Solar · Inverter · LiFePO4 Storage",
+  "email": "liana93work@gmail.com",
+  "phone": "+86 139 3826 0031",
+  "whatsapp": "+86 139 3826 0031",
+  "address": "[Henan], China"
 }

@@ -1,0 +1,85 @@
+{
+  "sections": [
+    {
+      "type": "phead",
+      "crumb": "Home / Solutions",
+      "title": "Solutions",
+      "text": "Right-sized energy systems for homes, business and industry."
+    },
+    {
+      "type": "cards",
+      "kicker": "",
+      "title": "",
+      "text": "",
+      "theme": "",
+      "columns": "3",
+      "cards": [
+        {
+          "kicker": "Residential",
+          "title": "Home Energy Storage",
+          "text": "Cut electricity bills and ride through outages with a wall-mounted inverter + battery system, topped up by rooftop solar.",
+          "icon": "🏠",
+          "image": "",
+          "bullets": ["5–15 kWh capacity", "Backup for essential loads", "App monitoring"]
+        },
+        {
+          "kicker": "Off-Grid",
+          "title": "Off-Grid Power",
+          "text": "Reliable power for cabins, farms, RVs and telecom sites where there is no grid connection.",
+          "icon": "⛺",
+          "image": "",
+          "bullets": ["Solar + storage + inverter", "Weather-proof & robust", "Remote monitoring"]
+        },
+        {
+          "kicker": "C&I",
+          "title": "Commercial & Industrial",
+          "text": "Scalable cabinets for peak shaving, demand management and backup for factories, malls and hospitals.",
+          "icon": "🏭",
+          "image": "",
+          "bullets": ["100 kWh – MW scale", "Grid-tie & peak shaving", "Parallel & expandable"]
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "kicker": "How We Work",
+      "title": "From Load Audit to Delivery",
+      "text": "",
+      "theme": "soft",
+      "columns": "3",
+      "cards": [
+        {
+          "kicker": "Step 1",
+          "title": "Consultation",
+          "text": "Tell us your loads, location and backup needs.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "Step 2",
+          "title": "System Design",
+          "text": "We size inverter, panel and battery for your scenario.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "Step 3",
+          "title": "Delivery & Support",
+          "text": "Production, documents, shipping and commissioning help.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        }
+      ]
+    },
+    {
+      "type": "band",
+      "title": "Not Sure What You Need?",
+      "text": "Send us your electricity bill or load list — we will design the system.",
+      "btnText": "TALK TO AN ENGINEER",
+      "btnLink": "contact.html"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "sections": [
+    {
+      "type": "phead",
+      "crumb": "Home / News",
+      "title": "News & Insights",
+      "text": "Product updates, market trends and energy storage tips."
+    },
+    {
+      "type": "newslist",
+      "kicker": "",
+      "title": "",
+      "text": "",
+      "theme": ""
+    },
+    {
+      "type": "band",
+      "title": "Subscribe for Updates",
+      "text": "Get product news and energy tips — no spam.",
+      "btnText": "SUBSCRIBE",
+      "btnLink": "contact.html"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "sections": [
+    {
+      "type": "phead",
+      "crumb": "Home / Contact",
+      "title": "Contact Us",
+      "text": "Tell us your project — we reply within 24 hours."
+    },
+    {
+      "type": "contact",
+      "formTitle": "Send an Inquiry",
+      "formNote": "All fields marked * are required.",
+      "items": [
+        {
+          "title": "Get in Touch",
+          "lines": [
+            { "icon": "📧", "text": "sales@gaoteng-energy.com" },
+            { "icon": "📞", "text": "+86 xxx xxxx xxxx" },
+            { "icon": "💬", "text": "WhatsApp / WeChat: +86 xxx xxxx xxxx" },
+            { "icon": "🌐", "text": "Skype: gaoteng.export" },
+            { "icon": "📍", "text": "[Your Factory Address], China" }
+          ]
+        },
+        {
+          "title": "Regional Support",
+          "lines": [
+            { "icon": "🇳🇬", "text": "Nigeria: SONCAP & Paystack support" },
+            { "icon": "🇰🇪", "text": "Kenya: KEBS & M-Pesa support" },
+            { "icon": "🇮🇳", "text": "India: BIS, UPI & COD support" }
+          ]
+        }
+      ],
+      "theme": ""
+    }
+  ]
+}

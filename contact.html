@@ -34,6 +34,9 @@
   <button class="hamb" onclick="document.getElementById('menu').style.display=(document.getElementById('menu').style.display==='flex'?'none':'flex')">☰</button>
 </nav></div></header>
 
+<!-- ===== 页面板块（由 content/pages/contact.json 控制，可在后台增删/排序）===== -->
+<main id="gt-page" data-page="contact">
+
 <section class="phead"><span class="arc"></span><div class="wrap"><div class="crumb">Home / Contact</div><h1>Contact Us</h1><p>Tell us your project — we reply within 24 hours.</p></div></section>
 
 <section>
@@ -78,8 +81,10 @@
   </div>
 </section>
 
+</main>
+
 <footer><div class="wrap"><div class="fgrid">
-  <div><a class="brand" href="index.html" style="margin-bottom:16px"><span class="mark"></span><span><b data-site="company">Gaoteng Energy</b><small data-site="tagline">Solar · Inverter · LiFePO4 Storage</small></span></a><p style="color:#8aa2c4">Reliable solar, inverter and LiFePO4 storage systems worldwide.</p></div>
+  <div><a class="brand" href="index.html" style="margin-bottom:16px"><span class="mark"></span><span><b data-site="company">Gaoteng Energy</b><small data-site="tagline">Solar · Inverter · LiFePO4 Storage</small></span></a><p style="color:#8aa2c4" data-site="footerAbout">Reliable solar, inverter and LiFePO4 storage systems worldwide.</p></div>
   <div><h4>Company</h4><a href="about.html">About Us</a><a href="cases.html">Cases</a><a href="news.html">News</a><a href="contact.html">Contact</a></div>
   <div><h4>Products</h4><a href="products.html">Hybrid Inverter</a><a href="products.html">Solar Panel</a><a href="products.html">LiFePO4 Battery</a><a href="solutions.html">Solutions</a></div>
   <div><h4>Contact</h4><a href="#">📧 <span data-site="email">sales@gaoteng-energy.com</span></a><a href="#">☎ <span data-site="phone">+86 xxx xxxx xxxx</span></a><a href="#">📍 <span data-site="address">[Your City], China</span></a></div>

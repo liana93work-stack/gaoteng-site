@@ -1,0 +1,85 @@
+{
+  "sections": [
+    {
+      "type": "phead",
+      "crumb": "Home / Cases",
+      "title": "Projects & Cases",
+      "text": "Real installations powered by Gaoteng systems."
+    },
+    {
+      "type": "cards",
+      "kicker": "",
+      "title": "",
+      "text": "",
+      "theme": "",
+      "columns": "3",
+      "cards": [
+        {
+          "kicker": "🇳🇬 Nigeria · Residential",
+          "title": "5kW Home Backup",
+          "text": "A Lagos home now runs essential loads through daily grid outages with a 5kW hybrid inverter and 10kWh LiFePO4 bank.",
+          "icon": "🔋",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "🇰🇪 Kenya · Off-Grid",
+          "title": "Rural Clinic Solar",
+          "text": "An off-grid clinic keeps vaccines and lights running on a 8kW solar array with battery storage and remote monitoring.",
+          "icon": "☀️",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "🇮🇳 India · Commercial",
+          "title": "Factory Peak Shaving",
+          "text": "A textile plant cuts demand charges with a 100kWh cabinet system and 50kW of rooftop solar.",
+          "icon": "🏭",
+          "image": "",
+          "bullets": []
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "kicker": "By the Numbers",
+      "title": "Proven in the Field",
+      "text": "",
+      "theme": "soft",
+      "columns": "3",
+      "cards": [
+        {
+          "kicker": "",
+          "title": "500+",
+          "text": "Systems delivered across residential, off-grid and C&I projects.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "",
+          "title": "20+",
+          "text": "Countries served, with growing networks in Africa and India.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "",
+          "title": "99%",
+          "text": "On-time shipment rate with full export documentation.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        }
+      ]
+    },
+    {
+      "type": "band",
+      "title": "Want Results Like These?",
+      "text": "Tell us about your project and we will send a tailored proposal.",
+      "btnText": "START YOUR PROJECT",
+      "btnLink": "contact.html"
+    }
+  ]
+}

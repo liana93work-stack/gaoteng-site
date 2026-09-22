@@ -9,43 +9,363 @@ locale: zh
 media_folder: "content/uploads"
 public_folder: "/content/uploads"
 
+# =====================================================================
+#  可复用板块定义（页面板块库）
+#  每个页面引用同一套板块，实现“增删板块 + 拖动排序 + 改文字改图片”
+# =====================================================================
 collections:
+  # ---------- 页面板块（可视化：增删 / 排序 / 改图改字） ----------
+  - name: "pages"
+    label: "页面板块（增删·拖动排序·改图改字）"
+    files:
+      - name: "page-home"
+        label: "首页 Home"
+        file: "content/pages/home.json"
+        format: json
+        fields:
+          - label: "页面板块（拖动左侧手柄排序；点“添加 板块”新增）"
+            name: "sections"
+            widget: "list"
+            label_singular: "板块"
+            collapsed: true
+            summary: "{{fields.title}}"
+            types: &all_blocks
+              - label: "① 大图标题区（Hero）"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "大标题（回车可换行）", name: "title", widget: "text" }
+                  - { label: "副标题", name: "subtitle", widget: "text", required: false }
+                  - { label: "按钮1 文字", name: "btn1Text", widget: "string", required: false }
+                  - { label: "按钮1 链接", name: "btn1Link", widget: "string", required: false, default: "contact.html" }
+                  - { label: "按钮2 文字", name: "btn2Text", widget: "string", required: false }
+                  - { label: "按钮2 链接", name: "btn2Link", widget: "string", required: false }
+                  - { label: "背景图片", name: "image", widget: "image", required: false, hint: "上传一张横图；留空则是默认深蓝科技风" }
+
+              - label: "② 页面标题条（内页顶部）"
+                name: "phead"
+                widget: "object"
+                fields:
+                  - { label: "面包屑", name: "crumb", widget: "string", required: false }
+                  - { label: "页面标题", name: "title", widget: "string" }
+                  - { label: "标题下一句话", name: "text", widget: "string", required: false }
+
+              - label: "③ 数据指标条"
+                name: "stats"
+                widget: "object"
+                fields:
+                  - label: "指标"
+                    name: "items"
+                    widget: "list"
+                    summary: "{{fields.num}} {{fields.label}}"
+                    fields:
+                      - { label: "数值", name: "num", widget: "string" }
+                      - { label: "说明", name: "label", widget: "string" }
+
+              - label: "④ 卡片列表（最常用）"
+                name: "cards"
+                widget: "object"
+                fields:
+                  - { label: "小标题（英文大写更好看）", name: "kicker", widget: "string", required: false }
+                  - { label: "区块标题", name: "title", widget: "string", required: false }
+                  - { label: "区块说明", name: "text", widget: "text", required: false }
+                  - label: "背景风格"
+                    name: "theme"
+                    widget: "select"
+                    default: "white"
+                    options: [{ label: "白色", value: "white" }, { label: "浅灰底", value: "soft" }, { label: "深蓝底", value: "dark" }]
+                  - label: "每行卡片数"
+                    name: "columns"
+                    widget: "select"
+                    default: "3"
+                    options: [{ label: "2 个", value: "2" }, { label: "3 个", value: "3" }, { label: "4 个", value: "4" }]
+                  - label: "卡片"
+                    name: "cards"
+                    widget: "list"
+                    label_singular: "卡片"
+                    collapsed: true
+                    summary: "{{fields.title}}"
+                    fields:
+                      - { label: "卡片小标（如 01 / Nigeria）", name: "kicker", widget: "string", required: false }
+                      - { label: "卡片标题", name: "title", widget: "string" }
+                      - { label: "卡片正文", name: "text", widget: "text", required: false }
+                      - { label: "图标（emoji，如 🔋 ☀️ 🏭）", name: "icon", widget: "string", required: false }
+                      - { label: "卡片图片（上传后优先显示图片）", name: "image", widget: "image", required: false }
+                      - label: "要点列表"
+                        name: "bullets"
+                        widget: "list"
+                        required: false
+                        field: { label: "要点", name: "item", widget: "string" }
+                  - { label: "底部按钮文字", name: "btnText", widget: "string", required: false }
+                  - { label: "底部按钮链接", name: "btnLink", widget: "string", required: false }
+
+              - label: "⑤ 左文右图 / 左图右文"
+                name: "split"
+                widget: "object"
+                fields:
+                  - { label: "小标题", name: "kicker", widget: "string", required: false }
+                  - { label: "标题", name: "title", widget: "string" }
+                  - { label: "正文（空行分段）", name: "text", widget: "text", required: false }
+                  - label: "要点（打勾列表）"
+                    name: "bullets"
+                    widget: "list"
+                    required: false
+                    field: { label: "要点", name: "item", widget: "string" }
+                  - { label: "按钮文字", name: "btnText", widget: "string", required: false }
+                  - { label: "按钮链接", name: "btnLink", widget: "string", required: false }
+                  - { label: "图片", name: "image", widget: "image", required: false, hint: "留空显示默认插图" }
+                  - label: "图片位置"
+                    name: "imageSide"
+                    widget: "select"
+                    default: "right"
+                    options: [{ label: "右侧", value: "right" }, { label: "左侧", value: "left" }]
+                  - label: "背景风格"
+                    name: "theme"
+                    widget: "select"
+                    default: "white"
+                    options: [{ label: "白色", value: "white" }, { label: "浅灰底", value: "soft" }, { label: "深蓝底", value: "dark" }]
+
+              - label: "⑥ 规格参数表格"
+                name: "table"
+                widget: "object"
+                fields:
+                  - { label: "小标题", name: "kicker", widget: "string", required: false }
+                  - { label: "表格标题", name: "title", widget: "string", required: false }
+                  - { label: "表格下方备注", name: "text", widget: "text", required: false }
+                  - label: "表头（列名）"
+                    name: "headers"
+                    widget: "list"
+                    field: { label: "列名", name: "item", widget: "string" }
+                  - label: "表格内容（每一行）"
+                    name: "rows"
+                    widget: "list"
+                    label_singular: "行"
+                    collapsed: true
+                    summary: "{{fields.cells}}"
+                    fields:
+                      - label: "本行单元格（每个格子一个）"
+                        name: "cells"
+                        widget: "list"
+                        field: { label: "单元格", name: "item", widget: "string" }
+                  - label: "背景风格"
+                    name: "theme"
+                    widget: "select"
+                    default: "white"
+                    options: [{ label: "白色", value: "white" }, { label: "浅灰底", value: "soft" }, { label: "深蓝底", value: "dark" }]
+
+              - label: "⑦ 产品卡片（自动读取产品库）"
+                name: "products"
+                widget: "object"
+                fields:
+                  - { label: "小标题", name: "kicker", widget: "string", required: false }
+                  - { label: "区块标题", name: "title", widget: "string", required: false }
+                  - { label: "区块说明", name: "text", widget: "text", required: false }
+                  - { label: "按钮文字", name: "btnText", widget: "string", required: false }
+                  - { label: "按钮链接", name: "btnLink", widget: "string", required: false }
+                  - label: "背景风格"
+                    name: "theme"
+                    widget: "select"
+                    default: "white"
+                    options: [{ label: "白色", value: "white" }, { label: "浅灰底", value: "soft" }, { label: "深蓝底", value: "dark" }]
+
+              - label: "⑧ 新闻列表（自动读取新闻库）"
+                name: "newslist"
+                widget: "object"
+                fields:
+                  - { label: "小标题", name: "kicker", widget: "string", required: false }
+                  - { label: "区块标题", name: "title", widget: "string", required: false }
+                  - { label: "区块说明", name: "text", widget: "text", required: false }
+                  - label: "背景风格"
+                    name: "theme"
+                    widget: "select"
+                    default: "white"
+                    options: [{ label: "白色", value: "white" }, { label: "浅灰底", value: "soft" }, { label: "深蓝底", value: "dark" }]
+
+              - label: "⑨ 自由文字段落"
+                name: "text"
+                widget: "object"
+                fields:
+                  - { label: "小标题", name: "kicker", widget: "string", required: false }
+                  - { label: "标题", name: "title", widget: "string", required: false }
+                  - { label: "正文（空行分段）", name: "body", widget: "text" }
+
+              - label: "⑩ 图片墙"
+                name: "gallery"
+                widget: "object"
+                fields:
+                  - { label: "小标题", name: "kicker", widget: "string", required: false }
+                  - { label: "区块标题", name: "title", widget: "string", required: false }
+                  - label: "每行图片数"
+                    name: "columns"
+                    widget: "select"
+                    default: "3"
+                    options: [{ label: "2 张", value: "2" }, { label: "3 张", value: "3" }, { label: "4 张", value: "4" }]
+                  - label: "图片"
+                    name: "images"
+                    widget: "list"
+                    label_singular: "图片"
+                    collapsed: true
+                    summary: "{{fields.caption}}"
+                    fields:
+                      - { label: "图片", name: "image", widget: "image" }
+                      - { label: "图片说明", name: "caption", widget: "string", required: false }
+
+              - label: "⑪ 底部行动横幅"
+                name: "band"
+                widget: "object"
+                fields:
+                  - { label: "标题", name: "title", widget: "string" }
+                  - { label: "说明", name: "text", widget: "text", required: false }
+                  - { label: "按钮文字", name: "btnText", widget: "string", required: false }
+                  - { label: "按钮链接", name: "btnLink", widget: "string", required: false, default: "contact.html" }
+
+              - label: "⑫ 联系表单 + 联系卡片"
+                name: "contact"
+                widget: "object"
+                fields:
+                  - { label: "表单标题", name: "formTitle", widget: "string", required: false }
+                  - { label: "表单提示语", name: "formNote", widget: "string", required: false }
+                  - label: "联系信息卡片"
+                    name: "items"
+                    widget: "list"
+                    label_singular: "卡片"
+                    collapsed: true
+                    summary: "{{fields.title}}"
+                    fields:
+                      - { label: "卡片标题", name: "title", widget: "string" }
+                      - label: "联系方式行"
+                        name: "lines"
+                        widget: "list"
+                        label_singular: "行"
+                        summary: "{{fields.text}}"
+                        fields:
+                          - { label: "图标（emoji）", name: "icon", widget: "string", required: false }
+                          - { label: "文字", name: "text", widget: "string" }
+      - name: "page-about"
+        label: "关于我们 About"
+        file: "content/pages/about.json"
+        format: json
+        fields:
+          - label: "页面板块"
+            name: "sections"
+            widget: "list"
+            label_singular: "板块"
+            collapsed: true
+            summary: "{{fields.title}}"
+            types: *all_blocks
+      - name: "page-products"
+        label: "产品 Products"
+        file: "content/pages/products.json"
+        format: json
+        fields:
+          - label: "页面板块"
+            name: "sections"
+            widget: "list"
+            label_singular: "板块"
+            collapsed: true
+            summary: "{{fields.title}}"
+            types: *all_blocks
+      - name: "page-solutions"
+        label: "解决方案 Solutions"
+        file: "content/pages/solutions.json"
+        format: json
+        fields:
+          - label: "页面板块"
+            name: "sections"
+            widget: "list"
+            label_singular: "板块"
+            collapsed: true
+            summary: "{{fields.title}}"
+            types: *all_blocks
+      - name: "page-markets"
+        label: "市场 Markets"
+        file: "content/pages/markets.json"
+        format: json
+        fields:
+          - label: "页面板块"
+            name: "sections"
+            widget: "list"
+            label_singular: "板块"
+            collapsed: true
+            summary: "{{fields.title}}"
+            types: *all_blocks
+      - name: "page-cases"
+        label: "案例 Cases"
+        file: "content/pages/cases.json"
+        format: json
+        fields:
+          - label: "页面板块"
+            name: "sections"
+            widget: "list"
+            label_singular: "板块"
+            collapsed: true
+            summary: "{{fields.title}}"
+            types: *all_blocks
+      - name: "page-news"
+        label: "新闻 News"
+        file: "content/pages/news.json"
+        format: json
+        fields:
+          - label: "页面板块"
+            name: "sections"
+            widget: "list"
+            label_singular: "板块"
+            collapsed: true
+            summary: "{{fields.title}}"
+            types: *all_blocks
+      - name: "page-contact"
+        label: "联系 Contact"
+        file: "content/pages/contact.json"
+        format: json
+        fields:
+          - label: "页面板块"
+            name: "sections"
+            widget: "list"
+            label_singular: "板块"
+            collapsed: true
+            summary: "{{fields.title}}"
+            types: *all_blocks
+
+  # ---------- 导航菜单 ----------
+  - name: "nav"
+    label: "导航菜单 / 页脚"
+    files:
+      - name: "nav-config"
+        label: "顶部导航与页脚文字"
+        file: "content/nav.json"
+        format: json
+        fields:
+          - label: "导航菜单（可增删、拖拽排序）"
+            name: "items"
+            widget: "list"
+            label_singular: "菜单项"
+            collapsed: true
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "显示文字", name: "label", widget: "string" }
+              - { label: "链接", name: "link", widget: "string", hint: "如 about.html / index.html / contact.html" }
+              - { label: "高亮成按钮", name: "highlight", widget: "boolean", default: false }
+          - { label: "页脚公司简介", name: "footerAbout", widget: "text" }
+
+  # ---------- 站点设置 ----------
   - name: "site"
-    label: "站点设置（联系方式 / 首页文案）"
+    label: "站点设置（公司信息）"
     files:
       - name: "site-config"
         label: "全局信息"
         file: "content/site.json"
         format: json
         fields:
-          - {label: "公司名称", name: "company", widget: "string"}
-          - {label: "品牌标语", name: "tagline", widget: "string"}
-          - {label: "邮箱", name: "email", widget: "string"}
-          - {label: "电话", name: "phone", widget: "string"}
-          - {label: "WhatsApp", name: "whatsapp", widget: "string"}
-          - {label: "地址", name: "address", widget: "string"}
-          - {label: "主题色(十六进制)", name: "themeColor", widget: "string", hint: "例如 #1f6dff"}
-          - {label: "首页大标题", name: "heroTitle", widget: "string"}
-          - {label: "首页副标题", name: "heroSubtitle", widget: "text"}
-          - {label: "首页按钮文字", name: "heroCta", widget: "string"}
-          - {label: "底部行动标题", name: "ctaTitle", widget: "string"}
-          - {label: "底部行动说明", name: "ctaText", widget: "text"}
-          - label: "首页数据指标"
-            name: "stats"
-            widget: "list"
-            fields:
-              - {label: "数值", name: "num", widget: "string"}
-              - {label: "说明", name: "label", widget: "string"}
-          - label: "优势三点"
-            name: "why"
-            widget: "list"
-            fields:
-              - {label: "编号", name: "k", widget: "string"}
-              - {label: "标题", name: "title", widget: "string"}
-              - {label: "说明", name: "text", widget: "text"}
+          - { label: "公司名称", name: "company", widget: "string" }
+          - { label: "品牌标语", name: "tagline", widget: "string" }
+          - { label: "邮箱", name: "email", widget: "string" }
+          - { label: "电话", name: "phone", widget: "string" }
+          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+          - { label: "地址", name: "address", widget: "string" }
 
+  # ---------- 产品库 ----------
   - name: "products"
-    label: "产品（首页与产品页卡片）"
+    label: "产品库（首页与产品页卡片）"
     files:
       - name: "products"
         label: "产品列表"
@@ -55,16 +375,20 @@ collections:
           - label: "产品"
             name: "items"
             widget: "list"
+            label_singular: "产品"
+            collapsed: true
+            summary: "{{fields.name}}"
             fields:
-              - {label: "类别", name: "category", widget: "string"}
-              - {label: "名称", name: "name", widget: "string"}
-              - {label: "图标(emoji)", name: "icon", widget: "string", hint: "例如 ⚡ ☀️ 🔋"}
-              - {label: "描述", name: "description", widget: "text"}
+              - { label: "类别", name: "category", widget: "string" }
+              - { label: "名称", name: "name", widget: "string" }
+              - { label: "图标(emoji)", name: "icon", widget: "string", required: false, hint: "例如 ⚡ ☀️ 🔋" }
+              - { label: "描述", name: "description", widget: "text" }
               - label: "参数列表"
                 name: "specs"
                 widget: "list"
-                field: {label: "参数", name: "item", widget: "string"}
+                field: { label: "参数", name: "item", widget: "string" }
 
+  # ---------- 新闻库 ----------
   - name: "news"
     label: "新闻 / 博客"
     files:
@@ -76,7 +400,34 @@ collections:
           - label: "新闻"
             name: "items"
             widget: "list"
+            label_singular: "新闻"
+            collapsed: true
+            summary: "{{fields.title}}"
             fields:
-              - {label: "日期", name: "date", widget: "date"}
-              - {label: "标题", name: "title", widget: "string"}
-              - {label: "正文", name: "body", widget: "text"}
+              - { label: "日期", name: "date", widget: "date" }
+              - { label: "标题", name: "title", widget: "string" }
+              - { label: "正文", name: "body", widget: "text" }
+
+  # ---------- 样式 ----------
+  - name: "style"
+    label: "样式设置（字体 / 字号 / 颜色 / 背景图）"
+    files:
+      - name: "style-config"
+        label: "网站样式"
+        file: "content/style.json"
+        format: json
+        fields:
+          - label: "字体"
+            name: "fontFamily"
+            widget: "select"
+            options:
+              - { label: "现代无衬线（默认）", value: "'Segoe UI', Roboto, Helvetica, Arial, 'Microsoft YaHei', sans-serif" }
+              - { label: "圆润 Poppins", value: "'Poppins', 'Microsoft YaHei', sans-serif" }
+              - { label: "优雅 Inter", value: "'Inter', 'Microsoft YaHei', sans-serif" }
+              - { label: "中文思源黑体", value: "'Noto Sans SC', 'Microsoft YaHei', sans-serif" }
+              - { label: "系统默认", value: "system-ui, -apple-system, 'Segoe UI', Roboto, 'Microsoft YaHei', sans-serif" }
+            hint: "选择整站字体"
+          - { label: "基础字号(px)", name: "fontSize", widget: "number", min: 13, max: 20, default: 16, hint: "控制整站基础文字大小（13–20）" }
+          - { label: "主色(十六进制)", name: "primaryColor", widget: "string", hint: "按钮、链接、强调色，例如 #2f8fff 或 #0a8f5b" }
+          - { label: "页面背景色", name: "bgColor", widget: "string", hint: "网页主体背景，例如 #ffffff（白）或 #f4f7fc（浅灰蓝）" }
+          - { label: "首页背景图（默认）", name: "heroBg", widget: "image", required: false, hint: "上传横图作为首页背景；若首页 Hero 板块里单独设了图，以 Hero 为准" }

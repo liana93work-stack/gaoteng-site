@@ -1,0 +1,101 @@
+{
+  "sections": [
+    {
+      "type": "phead",
+      "crumb": "Home / About Us",
+      "title": "About Gaoteng Energy",
+      "text": "30 years of power electronics experience — from cells to complete systems."
+    },
+    {
+      "type": "split",
+      "kicker": "Who We Are",
+      "title": "Engineering Reliable Energy for the World",
+      "text": "Gaoteng Energy is a manufacturer of hybrid inverters, monocrystalline solar panels and LiFePO4 battery storage. From a single cell to a megawatt-scale project, we design systems that keep homes and businesses powered.\n\nOur vertically integrated factory in China produces, tests and delivers to more than 20 countries across Africa, Asia and the Middle East.",
+      "bullets": [
+        "Vertically integrated manufacturing",
+        "In-house R&D and testing lab",
+        "Full export documentation & certification support"
+      ],
+      "btnText": "",
+      "btnLink": "",
+      "image": "",
+      "imageSide": "right",
+      "theme": ""
+    },
+    {
+      "type": "cards",
+      "kicker": "Milestones",
+      "title": "Our Journey",
+      "text": "",
+      "theme": "soft",
+      "columns": "3",
+      "cards": [
+        {
+          "kicker": "1996",
+          "title": "Founded",
+          "text": "Started as a power electronics workshop supplying inverters to local projects.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "2012",
+          "title": "Battery Division",
+          "text": "Launched LiFePO4 battery production with in-house BMS development.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "2020",
+          "title": "Global Export",
+          "text": "Expanded to 20+ countries with regional partners in Africa and Asia.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "kicker": "Certifications",
+      "title": "Certified for Global Markets",
+      "text": "Full test reports provided with every order.",
+      "theme": "dark",
+      "columns": "3",
+      "cards": [
+        {
+          "kicker": "",
+          "title": "CE / RoHS",
+          "text": "European conformity for inverters and electronics.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "",
+          "title": "IEC 61215 / 62619",
+          "text": "Solar module and battery safety standards.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "",
+          "title": "UL / BIS-ready",
+          "text": "US and India market certification support.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        }
+      ]
+    },
+    {
+      "type": "band",
+      "title": "Let's Build Something Reliable",
+      "text": "Talk to our export team about your project today.",
+      "btnText": "CONTACT US",
+      "btnLink": "contact.html"
+    }
+  ]
+}
