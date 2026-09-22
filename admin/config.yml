@@ -2,7 +2,7 @@ backend:
   name: github
   repo: liana93work-stack/gaoteng-site
   branch: main
-  base_url: https://gaoteng-site.pages.dev
+  base_url: https://gaoteng-cms-auth.liana93work.workers.dev
 
 locale: zh
 
