@@ -453,15 +453,36 @@
   /* ------------------------------------------------------------------
      7) 注册到 Decap CMS
      ------------------------------------------------------------------ */
-  var MODES = { pages: "page", style: "style", products: "products", news: "news", site: "site", nav: "nav" };
+  /* 重要（2026-09-22 修正）：
+     Decap 对 type: files 的集合，查预览模板时用的是「文件的 name（slug）」，
+     不是集合名（源码：selectTemplateName -> files 类型直接返回 slug）。
+     所以必须按每个文件的 name 注册，否则会静默退回 Decap 自带预览。 */
+  var BY_FILE = {
+    "page-home": "page", "page-about": "page", "page-products": "page", "page-solutions": "page",
+    "page-markets": "page", "page-cases": "page", "page-news": "page", "page-contact": "page",
+    "nav-config": "nav",
+    "site-config": "site",
+    "products": "products",
+    "news": "news",
+    "style-config": "style"
+  };
+  /* 兼容：同时按集合名注册（以后若把集合改成 folder 类型仍然有效） */
+  var BY_COLLECTION = { pages: "page", nav: "nav", site: "site", products: "products", news: "news", style: "style" };
 
-  G.GT_PREVIEW = { sectionsHTML: sectionsHTML, previewHTML: previewHTML, SHELL: SHELL, BLOCKS: BLOCKS, makePreview: makePreview };
+  var REGISTER = {};
+  Object.keys(BY_FILE).forEach(function (k) { REGISTER[k] = BY_FILE[k]; });
+  Object.keys(BY_COLLECTION).forEach(function (k) { if (!REGISTER[k]) REGISTER[k] = BY_COLLECTION[k]; });
+
+  G.GT_PREVIEW = { sectionsHTML: sectionsHTML, previewHTML: previewHTML, SHELL: SHELL, BLOCKS: BLOCKS, makePreview: makePreview, REGISTER: REGISTER };
 
   if (typeof CMS !== "undefined" && CMS && CMS.registerPreviewTemplate) {
-    Object.keys(MODES).forEach(function (col) {
-      try { CMS.registerPreviewTemplate(col, makePreview(MODES[col])); } catch (e) { }
+    Object.keys(REGISTER).forEach(function (key) {
+      try { CMS.registerPreviewTemplate(key, makePreview(REGISTER[key])); } catch (e) { }
     });
     if (typeof G.CMS_REGISTERED === "undefined") G.CMS_REGISTERED = true;
+    try {
+      console.log("[GT preview] 已注册预览模板 " + Object.keys(REGISTER).length + " 个：" + Object.keys(REGISTER).join(", "));
+    } catch (e) { }
     loadData();
   }
 })();
