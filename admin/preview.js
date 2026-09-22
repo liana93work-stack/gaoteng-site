@@ -2,7 +2,10 @@
    Gaoteng Energy — 后台「实时预览」扩展（Decap CMS custom preview）
    作用：在 /admin 编辑内容时，编辑器右侧用 iframe 按真实网站样式实时渲染，
         左边改字、右边立刻变（无需发布、无需刷新）。
-   依赖：admin/index.html 里先加载 React(UMD)，再加载本文件。
+   重要：Decap CMS 3.x 内部打包的是 React 19（实测 decap-cms@3.16.2 = React 19.2.0），
+        它会拒绝渲染「旧版 React 造出的元素」（浏览器报 Minified React error #525）。
+        因此本文件：① 不再依赖页面里的 React，按 React 19 的元素结构自行构造元素；
+                  ② 不使用 hooks（两个 React 副本的 hooks 不互通）。
    ===================================================================== */
 (function () {
   "use strict";
@@ -374,62 +377,105 @@
   }
 
   /* ------------------------------------------------------------------
-     5) React 预览组件（不依赖 JSX / 打包工具）
-     ------------------------------------------------------------------ */
-  function makePreview(mode) {
-    function Preview(props) { React.Component.call(this, props); }
-    Preview.prototype = Object.create(React.Component.prototype);
-    Preview.prototype.constructor = Preview;
+     5) 预览组件（不用 JSX / 不用 hooks / 不依赖页面里的 React）
 
-    Preview.prototype.data = function () {
-      var e = this.props && this.props.entry;
-      var d = e && e.get ? e.get("data") : null;
+     背景：Decap CMS 3.x 内置 React 19，React 19 只认带
+     Symbol.for("react.transitional.element") 标记的元素；
+     用旧版 React（18）造的「老标记」元素会被拒绝 → Minified React error #525。
+     所以这里按 React 19 的元素工厂结构自行构造元素：
+        { $$typeof, type, key, ref, props }   ← 与 decap 打包内的工厂完全一致
+     同时不能用 hooks（两个 React 副本之间 hooks 不互通），
+     改用「每次 render 重新挂 ref 回调」来驱动 iframe 重绘。
+     ------------------------------------------------------------------ */
+  var REACT_ELEMENT_TYPE = (typeof Symbol === "function" && Symbol.for)
+    ? Symbol.for("react.transitional.element")
+    : "react.transitional.element";
+
+  /* 与 React 19 的元素工厂结构一致：{ $$typeof, type, key, ref, props }
+     注意①：React 19 从 props.ref 读取 ref（element.ref 已被移除、会被忽略），
+            所以 ref 必须同时保留在 props 里，否则 ref 回调不会触发、预览不会刷新。
+     注意②：key 由配置中提取到元素层，props 中不再保留（与 React 一致）。 */
+  function el(type, props) {
+    var p = {}, key = null, ref = null, children, hasChildren = false;
+    if (props) {
+      for (var k in props) {
+        if (!Object.prototype.hasOwnProperty.call(props, k)) continue;
+        var v = props[k];
+        if (k === "key") { key = v == null ? null : "" + v; continue; }
+        if (k === "ref") { ref = v; p.ref = v; continue; }
+        if (k === "children") { children = v; hasChildren = true; continue; }
+        p[k] = v;
+      }
+    }
+    if (arguments.length > 2) {
+      children = arguments.length === 3 ? arguments[2] : Array.prototype.slice.call(arguments, 2);
+      hasChildren = true;
+    }
+    if (hasChildren) p.children = children;
+    return { $$typeof: REACT_ELEMENT_TYPE, type: type, key: key, ref: ref === undefined ? null : ref, props: p };
+  }
+
+  var WRAP_STYLE = { width: "100%", height: "calc(100vh - 130px)", minHeight: "620px", background: "#fff", borderRadius: "6px", overflow: "hidden", boxShadow: "0 1px 3px rgba(0,0,0,.12)" };
+  var FRAME_STYLE = { width: "100%", height: "100%", border: "0", display: "block", background: "#fff" };
+
+  /* 模块级状态，替代 class 实例状态 */
+  var LIVE = { frame: null, paint: null, timer: null };
+
+  function schedulePaint(delay) {
+    if (LIVE.timer) clearTimeout(LIVE.timer);
+    LIVE.timer = setTimeout(function () {
+      LIVE.timer = null;
+      if (typeof LIVE.paint === "function") LIVE.paint();
+    }, typeof delay === "number" ? delay : 150);
+  }
+
+  /* srcDoc 装载需要时间：iframe 没就绪就稍后重试 */
+  function paintWhenFrameReady(frame, tries) {
+    tries = tries || 0;
+    var doc = null;
+    try { doc = frame.contentDocument; } catch (e) { return; }
+    if (doc && doc.getElementById("gt-preview-main")) { schedulePaint(0); return; }
+    if (tries < 40) setTimeout(function () { paintWhenFrameReady(frame, tries + 1); }, 50);
+  }
+
+  function makePreview(mode) {
+    function Preview(props) {
+      var entry = props && props.entry;
+      var d = entry && entry.get ? entry.get("data") : null;
       if (d && d.toJS) d = d.toJS();
-      return d || {};
-    };
-    Preview.prototype.componentDidMount = function () {
-      var self = this;
-      this._onData = function () { self.paint(); };
-      window.addEventListener("gt-preview-data", this._onData);
-      setTimeout(function () { self.paint(); }, 60);
-    };
-    Preview.prototype.componentWillUnmount = function () {
-      if (this._onData) window.removeEventListener("gt-preview-data", this._onData);
-      if (this._t) clearTimeout(this._t);
-    };
-    Preview.prototype.componentDidUpdate = function () {
-      var self = this;
-      if (this._t) clearTimeout(this._t);
-      this._t = setTimeout(function () { self.paint(); }, 180);
-    };
-    Preview.prototype.paint = function () {
-      var f = this._frame;
-      if (!f) return;
-      var doc = null;
-      try { doc = f.contentDocument; } catch (e) { return; }
-      if (!doc) return;
-      var main = doc.getElementById("gt-preview-main");
-      if (!main) return;
-      var d = this.data();
-      var site = mode === "site" ? d : null;
-      var nav = mode === "nav" ? d : null;
-      var style = mode === "style" ? d : null;
-      fillChrome(doc, site, nav);
-      applyStyle(doc, style);
-      main.innerHTML = previewHTML(mode, d);
-    };
-    Preview.prototype.render = function () {
-      var self = this;
-      return React.createElement("div", {
-        style: { width: "100%", height: "calc(100vh - 130px)", minHeight: "620px", background: "#fff", borderRadius: "6px", overflow: "hidden", boxShadow: "0 1px 3px rgba(0,0,0,.12)" }
-      }, React.createElement("iframe", {
-        title: "实时预览",
-        srcDoc: SHELL,
-        ref: function (el) { self._frame = el; },
-        onLoad: function () { self.paint(); },
-        style: { width: "100%", height: "100%", border: "0", display: "block", background: "#fff" }
-      }));
-    };
+      d = d || {};
+
+      /* 每次 render 更新「用当前数据重画」的闭包 */
+      LIVE.paint = function () {
+        var f = LIVE.frame;
+        if (!f) return;
+        var doc = null;
+        try { doc = f.contentDocument; } catch (e) { return; }
+        if (!doc) return;
+        var main = doc.getElementById("gt-preview-main");
+        if (!main) return;
+        fillChrome(doc, mode === "site" ? d : null, mode === "nav" ? d : null);
+        applyStyle(doc, mode === "style" ? d : null);
+        main.innerHTML = previewHTML(mode, d);
+      };
+
+      return el("div", { style: WRAP_STYLE },
+        el("iframe", {
+          title: "实时预览",
+          srcDoc: SHELL,
+          ref: function (node) {
+            if (!node) { LIVE.frame = null; return; }
+            LIVE.frame = node;
+            var ready = false;
+            try { ready = !!(node.contentDocument && node.contentDocument.getElementById("gt-preview-main")); } catch (e) { ready = false; }
+            if (ready) schedulePaint(120);      // 已在编辑：防抖重绘，避免每敲一个字都重画
+            else paintWhenFrameReady(node, 0);  // 首次装载：等 iframe 就绪后立刻画
+          },
+          onLoad: function () { schedulePaint(0); },
+          style: FRAME_STYLE
+        })
+      );
+    }
     return Preview;
   }
 
@@ -473,13 +519,19 @@
   Object.keys(BY_FILE).forEach(function (k) { REGISTER[k] = BY_FILE[k]; });
   Object.keys(BY_COLLECTION).forEach(function (k) { if (!REGISTER[k]) REGISTER[k] = BY_COLLECTION[k]; });
 
-  G.GT_PREVIEW = { sectionsHTML: sectionsHTML, previewHTML: previewHTML, SHELL: SHELL, BLOCKS: BLOCKS, makePreview: makePreview, REGISTER: REGISTER };
+  G.GT_PREVIEW = {
+    sectionsHTML: sectionsHTML, previewHTML: previewHTML, SHELL: SHELL, BLOCKS: BLOCKS,
+    makePreview: makePreview, REGISTER: REGISTER, el: el, REACT_ELEMENT_TYPE: REACT_ELEMENT_TYPE,
+    LIVE: LIVE, requestPaint: schedulePaint
+  };
 
   if (typeof CMS !== "undefined" && CMS && CMS.registerPreviewTemplate) {
     Object.keys(REGISTER).forEach(function (key) {
       try { CMS.registerPreviewTemplate(key, makePreview(REGISTER[key])); } catch (e) { }
     });
     if (typeof G.CMS_REGISTERED === "undefined") G.CMS_REGISTERED = true;
+    /* 已发布数据加载完成后，让预览重画一次 */
+    if (G.addEventListener) G.addEventListener("gt-preview-data", schedulePaint);
     try {
       console.log("[GT preview] 已注册预览模板 " + Object.keys(REGISTER).length + " 个：" + Object.keys(REGISTER).join(", "));
     } catch (e) { }
