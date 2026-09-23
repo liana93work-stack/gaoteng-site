@@ -1,9 +1,9 @@
 {
   "fontFamily": "'Poppins', 'Microsoft YaHei', sans-serif",
   "fontSize": 18,
-  "primaryColor": "#0cd725",
-  "bgColor": "#bbe7b6",
+  "primaryColor": "#7fb6ed",
+  "bgColor": "#f6f8f8",
   "heroBg": "/content/uploads/总背景图.webp",
   "preset": "custom",
-  "navyColor": "#396a92"
+  "navyColor": "#035c83"
 }
