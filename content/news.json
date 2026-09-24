@@ -1,19 +1,130 @@
 {
   "items": [
     {
-      "date": "2026-09-10",
-      "title": "Gaoteng ships 1MW storage system to a Kenya microgrid",
-      "body": "Our 51.2V rack batteries and 10kW hybrid inverters are now powering a rural microgrid serving 400+ households."
+      "category": "Basics",
+      "icon": "☀️",
+      "title": "How a Solar + Battery System Works",
+      "body": "The four building blocks and how a typical day flows — panels, controller, battery, inverter.",
+      "readMore": "#art-1"
     },
     {
-      "date": "2026-08-22",
-      "title": "New 600W half-cut panel reaches 21.7% efficiency",
-      "body": "Mass production of the VS-P600M has started, with IEC 61215 certification and a 25-year linear warranty."
+      "category": "Batteries",
+      "icon": "🔋",
+      "title": "What Is LiFePO4 and Why It Lasts Longer",
+      "body": "Why lithium iron phosphate has become the standard for home storage over lead-acid.",
+      "readMore": "#art-2"
     },
     {
-      "date": "2026-07-15",
-      "title": "BIS-ready LiFePO4 series for the India market",
-      "body": "Our wall-mount batteries now ship with documentation packages to support smoother Indian customs clearance."
+      "category": "Inverters",
+      "icon": "⚡",
+      "title": "Off-Grid vs Grid-Tied vs Hybrid",
+      "body": "Pick the right inverter architecture for your grid and backup needs.",
+      "readMore": "#art-3"
+    },
+    {
+      "category": "Sizing",
+      "icon": "📐",
+      "title": "How to Size a Home Battery",
+      "body": "A step-by-step method using your real appliances and daily usage.",
+      "readMore": "#art-4"
+    },
+    {
+      "category": "Hot Climate",
+      "icon": "🌡️",
+      "title": "Protecting Batteries in Heat",
+      "body": "Practical installation tips for hot regions like Africa and India.",
+      "readMore": "#art-5"
+    },
+    {
+      "category": "Buying",
+      "icon": "🛡️",
+      "title": "How to Read a Warranty",
+      "body": "Why a bare '10 years' on the box tells you almost nothing.",
+      "readMore": "#art-6"
+    },
+    {
+      "category": "Reference",
+      "icon": "📖",
+      "title": "Solar Glossary: Key Terms A–Z",
+      "body": "Plain-English definitions of the words you will meet when buying panels, inverters and batteries.",
+      "readMore": "#art-7"
+    },
+    {
+      "category": "Buying",
+      "icon": "✅",
+      "title": "Pre-Purchase Self-Check List",
+      "body": "Nine questions to answer before you pay — so the system you buy actually fits your home.",
+      "readMore": "#art-8"
+    },
+    {
+      "category": "Buying",
+      "icon": "📊",
+      "title": "How to Read a Product Datasheet",
+      "body": "Which numbers on a spec sheet matter for real performance — and which are marketing.",
+      "readMore": "#art-9"
+    },
+    {
+      "category": "Basics",
+      "icon": "🧩",
+      "title": "Common Myths About Solar + Storage",
+      "body": "Five beliefs that quietly cost buyers money, and what is actually true.",
+      "readMore": "#art-10"
+    },
+    {
+      "category": "Solutions",
+      "icon": "🏠",
+      "title": "Power for a Typical Family Home",
+      "body": "A practical family setup: panels, a hybrid inverter and a battery sized to one or two backup days.",
+      "readMore": "#art-11"
+    },
+    {
+      "category": "Solutions",
+      "icon": "🏪",
+      "title": "Keeping a Small Shop or Office Running",
+      "body": "Keep lights, POS, fridges and internet on through outages — business continuity, not comfort.",
+      "readMore": "#art-12"
+    },
+    {
+      "category": "Solutions",
+      "icon": "🔌",
+      "title": "Backup Power Where the Grid Is Unreliable",
+      "body": "Where outages are frequent, make the battery your primary source and the grid the backup.",
+      "readMore": "#art-13"
+    },
+    {
+      "category": "Solutions",
+      "icon": "🌍",
+      "title": "Electricity for Off-Grid Villages",
+      "body": "No grid at all? Size for worst-case days, prioritise efficient loads, plan for service.",
+      "readMore": "#art-14"
+    },
+    {
+      "category": "Our Story",
+      "icon": "🌍",
+      "title": "Why We Focus on Africa & India",
+      "body": "Why we concentrate on Africa and India — and why we are a supplier, not a factory.",
+      "readMore": "#art-15"
+    },
+    {
+      "category": "Our Story",
+      "icon": "🧭",
+      "title": "How We Choose the Products We Offer",
+      "body": "The checks every product passes before we list it: cells, specs, local support, heat.",
+      "readMore": "#art-16"
+    },
+    {
+      "category": "Our Story",
+      "icon": "🤝",
+      "title": "Our After-Sales & Long-Term View",
+      "body": "Solar is a long-game purchase. Our job does not end at the sale.",
+      "readMore": "#art-17"
+    },
+    {
+      "category": "Buying",
+      "icon": "⚠️",
+      "title": "Avoiding Low-Price Traps",
+      "body": "A low sticker price is often the most expensive choice. What to watch before you pay.",
+      "readMore": "#art-18"
     }
   ]
 }
