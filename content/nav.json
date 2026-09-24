@@ -1,35 +1,13 @@
 {
   "items": [
-    {
-      "label": "Home",
-      "link": "index.html",
-      "highlight": true
-    },
-    {
-      "label": "About",
-      "link": "about.html",
-      "highlight": false
-    },
-    {
-      "label": "Products",
-      "link": "products.html",
-      "highlight": false
-    },
-    {
-      "label": "Solutions",
-      "link": "solutions.html",
-      "highlight": false
-    },
-    {
-      "label": "News",
-      "link": "news.html",
-      "highlight": false
-    },
-    {
-      "label": "Contact Us",
-      "link": "contact.html",
-      "highlight": false
-    }
+    { "label": "Home", "link": "index.html", "highlight": false },
+    { "label": "About", "link": "about.html", "highlight": false },
+    { "label": "Products", "link": "products.html", "highlight": false },
+    { "label": "Solutions", "link": "solutions.html", "highlight": false },
+    { "label": "Markets", "link": "markets.html", "highlight": false },
+    { "label": "Cases", "link": "cases.html", "highlight": false },
+    { "label": "Solar Guide", "link": "news.html", "highlight": false },
+    { "label": "Contact Us", "link": "contact.html", "highlight": true }
   ],
   "footerAbout": "Reliable solar, inverter and LiFePO4 storage systems for homes, business and industry worldwide."
 }
