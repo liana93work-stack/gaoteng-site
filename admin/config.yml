@@ -461,3 +461,39 @@ collections:
             default: "#ffffff"
             hint: "网页主体底色。参考：#ffffff 纯白 · #f4f7fc 浅灰蓝 · #f7f8fa 极浅灰"
           - { label: "首页背景图（默认）", name: "heroBg", widget: "image", required: false, hint: "上传横图作为首页背景；若首页 Hero 板块里单独设了图，以 Hero 为准" }
+          - label: "字体排版（逐项单独调整颜色/字号/字体）"
+            name: "typo"
+            widget: "object"
+            collapsed: true
+            hint: "在上方选好整站字体后，这里可以再对「正文 / 标题 / 导航 / 按钮」分别调颜色、字号、字体。留空 = 沿用上方整站设置"
+            fields:
+              - label: "① 正文（浅色区域文字）"
+                name: "body"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "字体（空=继承整站）", name: "bodyFont", widget: "select", required: false, default: "", options: [ { label: "继承整站字体", value: "" }, { label: "现代无衬线（默认）", value: "'Segoe UI', Roboto, Helvetica, Arial, 'Microsoft YaHei', sans-serif" }, { label: "圆润 Poppins", value: "'Poppins', 'Microsoft YaHei', sans-serif" }, { label: "优雅 Inter", value: "'Inter', 'Microsoft YaHei', sans-serif" }, { label: "中文思源黑体", value: "'Noto Sans SC', 'Microsoft YaHei', sans-serif" }, { label: "系统默认", value: "system-ui, -apple-system, 'Segoe UI', Roboto, 'Microsoft YaHei', sans-serif" } ] }
+                  - { label: "字号(px)", name: "bodySize", widget: "number", min: 12, max: 24, required: false, hint: "不填则沿用上方「基础字号」" }
+                  - { label: "文字颜色", name: "bodyColor", widget: "color", required: false, default: "#0f1c2e", hint: "浅色区域正文颜色" }
+              - label: "② 标题（各区块大标题）"
+                name: "heading"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "字体（空=继承整站）", name: "headFont", widget: "select", required: false, default: "", options: [ { label: "继承整站字体", value: "" }, { label: "现代无衬线（默认）", value: "'Segoe UI', Roboto, Helvetica, Arial, 'Microsoft YaHei', sans-serif" }, { label: "圆润 Poppins", value: "'Poppins', 'Microsoft YaHei', sans-serif" }, { label: "优雅 Inter", value: "'Inter', 'Microsoft YaHei', sans-serif" }, { label: "中文思源黑体", value: "'Noto Sans SC', 'Microsoft YaHei', sans-serif" }, { label: "系统默认", value: "system-ui, -apple-system, 'Segoe UI', Roboto, 'Microsoft YaHei', sans-serif" } ] }
+                  - { label: "基础字号(px)", name: "headSize", widget: "number", min: 20, max: 56, required: false, hint: "区块标题大小；首屏/内页大标题会按比例放大" }
+                  - { label: "标题颜色（浅色区）", name: "headColor", widget: "color", required: false, default: "#0f1c2e", hint: "浅色背景上的标题色；深色区（导航/首屏/页脚）标题仍自动白字" }
+              - label: "③ 顶部导航菜单"
+                name: "nav"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "字号(px)", name: "navSize", widget: "number", min: 12, max: 20, required: false }
+                  - { label: "文字颜色", name: "navColor", widget: "color", required: false, default: "#dbe7f7" }
+              - label: "④ 按钮文字"
+                name: "button"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "字号(px)", name: "btnSize", widget: "number", min: 12, max: 20, required: false }
+                  - { label: "白底/描边按钮文字色", name: "btnColor", widget: "color", required: false, default: "#0b2450", hint: "白底/描边按钮上的字；主色实心按钮文字始终为白" }

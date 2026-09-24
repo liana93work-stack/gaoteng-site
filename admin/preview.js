@@ -346,6 +346,12 @@
     '.hero.photo h1,.hero.photo p{text-shadow:0 2px 22px rgba(0,0,0,.62),0 1px 4px rgba(0,0,0,.48)}' +
     '.phead.photo .arc{display:none}' +
     '.phead.photo h1,.phead.photo p,.phead.photo .crumb{text-shadow:0 2px 18px rgba(0,0,0,.62),0 1px 3px rgba(0,0,0,.48)}' +
+    /* 字体排版保险层：即使线上 styles.css 尚未含排版变量，预览也即时响应颜色/字体 */
+    'body{color:var(--c-body);font-family:var(--font-body);font-size:var(--fs-body)}' +
+    '.sec-head h2,.card h3,.split h2{color:var(--c-head)}' +
+    '.menu a{color:var(--c-nav)} .menu{font-size:var(--fs-nav)}' +
+    '.btn{font-size:var(--fs-btn)} .btn.light{color:var(--c-btn)}' +
+    '.hero h1,.phead h1,.band h2{font-family:var(--font-head)}' +
     '</style>' +
     '</head><body>' +
     '<div class="gt-chrome">' + TOPBAR + '</div>' +
@@ -389,9 +395,23 @@
     if (!body) return;
     var c = resolveColors(style);
     CUR_NAVY = c.navy;
-    if (style.fontFamily) body.style.fontFamily = style.fontFamily;
-    if (style.fontSize) body.style.fontSize = style.fontSize + "px";
+    var globalFont = style.fontFamily || "'Segoe UI', Roboto, Helvetica, Arial, 'Microsoft YaHei', sans-serif";
+    var globalSize = style.fontSize || 16;
+    var typo = style.typo || {};
+    var tBody = typo.body || {}, tHead = typo.heading || {}, tNav = typo.nav || {}, tBtn = typo.button || {};
     body.style.background = c.bg;
+    root.style.setProperty("--font-base", globalFont);
+    root.style.setProperty("--font-body", tBody.bodyFont || globalFont);
+    root.style.setProperty("--font-head", tHead.headFont || globalFont);
+    var fsBody = tBody.bodySize || globalSize;
+    root.style.setProperty("--fs-body", fsBody + "px");
+    if (tHead.headSize) root.style.setProperty("--fs-head", tHead.headSize + "px");
+    if (tNav.navSize) root.style.setProperty("--fs-nav", tNav.navSize + "px");
+    if (tBtn.btnSize) root.style.setProperty("--fs-btn", tBtn.btnSize + "px");
+    if (tBody.bodyColor) root.style.setProperty("--c-body", tBody.bodyColor);
+    if (tHead.headColor) root.style.setProperty("--c-head", tHead.headColor);
+    if (tNav.navColor) root.style.setProperty("--c-nav", tNav.navColor);
+    if (tBtn.btnColor) root.style.setProperty("--c-btn", tBtn.btnColor);
     root.style.setProperty("--blue", c.primary);
     root.style.setProperty("--blue2", darken(c.primary, 0.15));
     root.style.setProperty("--blue-lt", lighten(c.primary, 0.35));
