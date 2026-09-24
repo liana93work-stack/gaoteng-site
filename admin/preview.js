@@ -157,7 +157,14 @@
     hero: function (b) {
       var photo = b.image ? " photo" : "";
       var style = "padding:0";
-      if (b.image) style += ";background-image:linear-gradient(rgba(" + heroRgb() + ",.62), rgba(" + heroRgb() + ",.78)), url(" + esc(b.image) + ");background-size:cover;background-position:center";
+      if (b.image) {
+        /* 默认显示图片原色（不叠任何色层）；仅当显式勾选遮罩时才加深色，便于白字阅读 */
+        var img = "url(" + esc(b.image) + ")";
+        var bg = b.overlay
+          ? "linear-gradient(rgba(" + heroRgb() + ",.55), rgba(" + heroRgb() + ",.72)), " + img
+          : img;
+        style += ";background-image:" + bg + ";background-size:cover;background-position:center";
+      }
       var btns = "";
       if (b.btn1Text) btns += '<a href="' + esc(b.btn1Link || "#") + '" class="btn light">' + esc(b.btn1Text) + "</a>";
       if (b.btn2Text) btns += '<a href="' + esc(b.btn2Link || "#") + '" class="btn outline">' + esc(b.btn2Text) + "</a>";
@@ -171,7 +178,12 @@
         "</div>" + art + "</div></div></section>";
     },
     phead: function (b) {
-      return '<section class="phead"><span class="arc"></span><div class="wrap">' +
+      /* 有背景图时：显示图片原色（不叠色层），白字用文字阴影保证可读 */
+      var ph = b.image ? " photo" : "";
+      var style = b.image
+        ? ";background-image:url(" + esc(b.image) + ");background-size:cover;background-position:center"
+        : "";
+      return '<section class="phead' + ph + '" style="' + style + '"><span class="arc"></span><div class="wrap">' +
         (b.crumb ? '<div class="crumb">' + esc(b.crumb) + "</div>" : "") +
         "<h1>" + esc(b.title || "") + "</h1>" +
         (b.text ? "<p>" + esc(b.text) + "</p>" : "") +
@@ -329,6 +341,11 @@
     '.brand .mark{background:radial-gradient(circle at 34% 30%,var(--blue-lt),var(--blue) 58%,var(--navy))}' +
     '.hero .globe{background:radial-gradient(circle at 30% 30%,rgba(var(--blue-rgb),.55),rgba(var(--blue-rgb),.14) 46%,transparent 70%)}' +
     '.hero .arc{border-color:rgba(var(--blue-rgb),.42)}' +
+    /* 图片原色保险层：有背景图时不染色、不叠光晕，仅给白字加阴影 */
+    '.hero.photo .globe,.hero.photo .arc,.hero.photo .art{display:none}' +
+    '.hero.photo h1,.hero.photo p{text-shadow:0 2px 22px rgba(0,0,0,.62),0 1px 4px rgba(0,0,0,.48)}' +
+    '.phead.photo .arc{display:none}' +
+    '.phead.photo h1,.phead.photo p,.phead.photo .crumb{text-shadow:0 2px 18px rgba(0,0,0,.62),0 1px 3px rgba(0,0,0,.48)}' +
     '</style>' +
     '</head><body>' +
     '<div class="gt-chrome">' + TOPBAR + '</div>' +
@@ -388,7 +405,9 @@
     if (style.heroBg) {
       var hero = doc.querySelector(".hero");
       if (hero && !/photo/.test(hero.className)) {
-        hero.style.backgroundImage = "linear-gradient(rgba(" + hexToRgb(c.navy) + ",.55), rgba(" + hexToRgb(c.navy) + ",.72)), url(" + style.heroBg + ")";
+        /* 「样式设置 → 首页背景图」：按图片原色显示，不叠加色层 */
+        hero.className += " photo";
+        hero.style.backgroundImage = "url(" + style.heroBg + ")";
         hero.style.backgroundSize = "cover";
         hero.style.backgroundPosition = "center";
       }

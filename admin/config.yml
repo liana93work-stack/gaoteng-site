@@ -40,7 +40,8 @@ collections:
                   - { label: "按钮1 链接", name: "btn1Link", widget: "string", required: false, default: "contact.html" }
                   - { label: "按钮2 文字", name: "btn2Text", widget: "string", required: false }
                   - { label: "按钮2 链接", name: "btn2Link", widget: "string", required: false }
-                  - { label: "背景图片", name: "image", widget: "image", required: false, hint: "上传一张横图；留空则是默认深蓝科技风" }
+                  - { label: "背景图片（按原图颜色显示）", name: "image", widget: "image", required: false, hint: "上传横图后整块显示图片原始颜色，不叠加任何色调；留空则用深蓝色背景" }
+                  - { label: "在图片上加深色遮罩", name: "overlay", widget: "boolean", required: false, default: false, hint: "仅当照片偏亮、白字看不清时才打开（打开后图片不再是原色）" }
 
               - label: "② 页面标题条（内页顶部）"
                 name: "phead"
@@ -49,6 +50,7 @@ collections:
                   - { label: "面包屑", name: "crumb", widget: "string", required: false }
                   - { label: "页面标题", name: "title", widget: "string" }
                   - { label: "标题下一句话", name: "text", widget: "string", required: false }
+                  - { label: "背景图片（按原图颜色显示）", name: "image", widget: "image", required: false, hint: "每个页面的这条标题带都能单独上传图片，显示图片原始颜色；留空则用深蓝色背景" }
 
               - label: "③ 数据指标条"
                 name: "stats"
