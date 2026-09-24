@@ -1,35 +1,22 @@
 {
   "sections": [
     {
-      "btn1Text": "EXPLORE OUR SOLUTIONS",
-      "btn2Text": "GET A QUOTE",
-      "btn1Link": "solutions.html",
-      "overlay": false,
-      "btn2Link": "contact.html",
-      "subtitle": "Scalable energy storage, hybrid inverters and solar solutions engineered to reduce energy costs, enhance resilience, and keep your operations running reliably.",
-      "title": "Reliable Power for\nCommercial & Industrial Energy",
       "type": "hero",
-      "image": "/content/uploads/总背景图.jpg"
+      "title": "Reliable Power for\nCommercial & Industrial Energy",
+      "subtitle": "Scalable energy storage, hybrid inverters and solar solutions engineered to reduce energy costs, enhance resilience, and keep your operations running reliably.",
+      "btn1Text": "EXPLORE OUR SOLUTIONS",
+      "btn1Link": "solutions.html",
+      "btn2Text": "GET A QUOTE",
+      "btn2Link": "contact.html",
+      "image": ""
     },
     {
       "type": "stats",
       "items": [
-        {
-          "num": "30+",
-          "label": "Years Manufacturing"
-        },
-        {
-          "num": "200+",
-          "label": "Projects Delivered"
-        },
-        {
-          "num": "20+",
-          "label": "Countries Served"
-        },
-        {
-          "num": "5yr",
-          "label": "Product Warranty"
-        }
+        { "num": "Home + C&I", "label": "Energy Storage Systems" },
+        { "num": "One-stop", "label": "Supply Chain Sourcing" },
+        { "num": "Tailor-made", "label": "Custom Solutions" },
+        { "num": "Worldwide", "label": "Shipping & Support" }
       ]
     },
     {
@@ -42,51 +29,67 @@
       "theme": "soft"
     },
     {
-      "btnText": "See Solutions",
-      "theme": "white",
+      "type": "split",
+      "kicker": "Who We Are",
+      "title": "A Solar + Storage Supplier & System Integrator",
+      "text": "Gaoteng Energy is a supplier and integrator of home and commercial energy storage systems — not a factory. We source a full series of proven inverters, LiFePO4 batteries, solar panels and balance-of-system components from a vetted supply chain, then design them into one reliable system for your project.\n\nThat means you get neutral component selection, competitive one-stop sourcing, and a single partner who sizes, sources and supports your system end to end.",
+      "bullets": [
+        "Supplier & integrator — not a manufacturer",
+        "Full-series sourcing: inverters, batteries, panels, BOS",
+        "Custom design for your load, climate and budget"
+      ],
+      "btnText": "About Gaoteng",
+      "btnLink": "about.html",
+      "image": "",
+      "imageSide": "right",
+      "theme": ""
+    },
+    {
+      "type": "split",
+      "kicker": "Solutions",
+      "title": "Power for Every Scenario",
       "text": "Whether you are powering a home, a remote site or a large facility, we size the right combination of inverter, panel and battery to match your load and budget.",
       "bullets": [
         "Residential energy storage & backup",
         "Off-grid cabins, RVs and telecom sites",
         "Commercial & industrial peak shaving"
       ],
-      "imageSide": "right",
-      "kicker": "Solutions",
+      "btnText": "See Solutions",
       "btnLink": "solutions.html",
-      "title": "Power for Every Scenario",
-      "type": "split",
-      "image": "/content/uploads/背景图4.webp"
+      "image": "",
+      "imageSide": "right",
+      "theme": ""
     },
     {
       "type": "cards",
       "kicker": "Why Gaoteng",
-      "title": "A Manufacturing Partner, Not Just a Supplier",
+      "title": "A Supply-Chain Partner, Not Just a Vendor",
       "text": "",
-      "theme": "white",
+      "theme": "dark",
       "columns": "3",
       "cards": [
         {
           "kicker": "01",
-          "title": "Own Factory",
-          "text": "Vertically integrated production with strict QC on every cell, board and finished unit.",
+          "title": "Full-Series Supply Chain",
+          "text": "One-stop access to hybrid inverters, LiFePO4 batteries, panels and BOS from a vetted network of certified factories — so you compare options, not just one brand.",
           "icon": "",
-          "image": "/content/uploads/万洋厂房.png",
+          "image": "",
           "bullets": []
         },
         {
           "kicker": "02",
-          "title": "Certified & Safe",
-          "text": "CE, IEC, UL and BIS-ready products with full test reports for smooth customs clearance.",
+          "title": "Customized Solutions",
+          "text": "We size and design each system around your actual load, local climate and budget — from a 5kWh home backup to a megawatt-scale C&I plant.",
           "icon": "",
-          "image": "/content/uploads/企业荣誉.png",
+          "image": "",
           "bullets": []
         },
         {
           "kicker": "03",
-          "title": "OEM / ODM",
-          "text": "Your logo, packaging, voltage spec and firmware — built for your market.",
+          "title": "Certified & Supported",
+          "text": "CE, IEC, UL and BIS-ready products with full test reports and export documentation for smooth customs and reliable after-sales.",
           "icon": "",
-          "image": "/content/uploads/生产车间4.png",
+          "image": "",
           "bullets": []
         }
       ]

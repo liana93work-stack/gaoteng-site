@@ -4,30 +4,111 @@
       "type": "phead",
       "crumb": "Home / About Us",
       "title": "About Gaoteng Energy",
-      "text": "15 years of power electronics experience — from cells to complete systems.",
-      "image": "/content/uploads/背景图.png"
+      "text": "Your solar + storage supplier and system integrator for home and commercial projects."
     },
     {
-      "btnText": "",
-      "theme": "soft",
-      "text": "Gaoteng Energy is a manufacturer of hybrid inverters, monocrystalline solar panels and LiFePO4 battery storage. From a single cell to a megawatt-scale project, we design systems that keep homes and businesses powered.\n\nOur vertically integrated factory in China produces, tests and delivers to more than 20 countries across Africa, Asia and the Middle East.",
-      "bullets": [
-        "Vertically integrated manufacturing",
-        "In-house R&D and testing lab",
-        "Full export documentation & certification support"
-      ],
-      "imageSide": "right",
-      "kicker": "Who We Are",
-      "btnLink": "",
-      "title": "Engineering Reliable Energy for the World",
       "type": "split",
-      "image": "/content/uploads/展示图4-安装太阳能电池板.png"
+      "kicker": "Who We Are",
+      "title": "We Source and Integrate — You Get One Reliable System",
+      "text": "Gaoteng Energy is a supplier and integrator of solar and energy-storage systems. We are not a factory: we partner with a vetted network of certified manufacturers to source inverters, LiFePO4 batteries, solar panels and balance-of-system parts, then design them into complete systems that fit your project.\n\nOur focus is home energy storage and commercial & industrial (C&I) energy storage — for families who want backup power, and businesses that want lower energy costs and resilience.",
+      "bullets": [
+        "Supplier & system integrator — not a manufacturer",
+        "Full-series sourcing across a vetted supply chain",
+        "Home ESS and C&I ESS specialists"
+      ],
+      "btnText": "See Our Solutions",
+      "btnLink": "solutions.html",
+      "image": "",
+      "imageSide": "right",
+      "theme": ""
+    },
+    {
+      "type": "cards",
+      "kicker": "What We Offer",
+      "title": "A Complete Storage Portfolio",
+      "text": "One partner for the full system — sourced, matched and supported.",
+      "theme": "soft",
+      "columns": "3",
+      "cards": [
+        {
+          "kicker": "Home",
+          "title": "Residential ESS",
+          "text": "5–20kWh wall-mount and rack batteries with hybrid inverters for backup and self-consumption.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "C&I",
+          "title": "Commercial ESS",
+          "text": "Scalable cabinet and container solutions for peak shaving, demand control and backup power.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "Supply",
+          "title": "Full-Series Sourcing",
+          "text": "Inverters, LiFePO4 cells, panels and BOS — sourced from certified factories to your specification.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "kicker": "Our Supply Chain",
+      "title": "One-Stop Sourcing, Neutrally Selected",
+      "body": "Because we are not tied to a single factory, we can choose components on fit — not on what we happen to make. We qualify each supplier for certifications, production consistency and after-sales, then bundle everything into one shipment with unified documentation.\n\nThe result: a wider choice, clearer accountability, and a single point of contact from quotation to commissioning."
+    },
+    {
+      "type": "cards",
+      "kicker": "How We Work",
+      "title": "From Inquiry to Commissioning",
+      "text": "",
+      "theme": "dark",
+      "columns": "4",
+      "cards": [
+        {
+          "kicker": "01",
+          "title": "Understand",
+          "text": "We review your load, site, climate and budget.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "02",
+          "title": "Design",
+          "text": "We size and select components into one matched system.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "03",
+          "title": "Source",
+          "text": "We procure from certified factories to your specification.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "04",
+          "title": "Deliver & Support",
+          "text": "Unified shipping, documentation and after-sales guidance.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        }
+      ]
     },
     {
       "type": "cards",
       "kicker": "Certifications",
       "title": "Certified for Global Markets",
-      "text": "Full test reports provided with every order.",
+      "text": "Full test reports and export documentation provided with every order.",
       "theme": "soft",
       "columns": "3",
       "cards": [
@@ -58,9 +139,110 @@
       ]
     },
     {
+      "type": "split",
+      "kicker": "Why An Integrator",
+      "title": "Why Work With a Supplier-Integrator",
+      "text": "A single-brand seller can only offer what they make. As an integrator, we assemble the best-fit parts for your case, keep one warranty window, and speak your language — English, and French for West Africa.\n\nFor African and Indian projects we pay special attention to high-temperature performance, dust resistance and local serviceability, because that is where systems live or fail.",
+      "bullets": [
+        "Neutral component selection",
+        "One warranty & one contact",
+        "Hot-climate & local-market expertise"
+      ],
+      "btnText": "Talk to Our Team",
+      "btnLink": "contact.html",
+      "image": "",
+      "imageSide": "left",
+      "theme": ""
+    },
+    {
+      "type": "cards",
+      "kicker": "Global Presence",
+      "title": "Where We Serve",
+      "text": "The regions below are examples — open this block in the admin panel, edit the text, and upload a map or office photo in each card's image field to show your real coverage.",
+      "theme": "soft",
+      "columns": "4",
+      "cards": [
+        {
+          "kicker": "West Africa",
+          "title": "Nigeria · Ghana · Côte d'Ivoire",
+          "text": "Local logistics and partner support for homes and businesses.",
+          "icon": "🌍",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "East Africa",
+          "title": "Kenya · Tanzania · Uganda",
+          "text": "Off-grid and C&I storage for a fast-growing solar market.",
+          "icon": "🌍",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "India",
+          "title": "Pan-India",
+          "text": "BIS-ready products with a regional distributor network.",
+          "icon": "🌍",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "Gulf · N. Africa · SEA",
+          "title": "Emerging Markets",
+          "text": "Project support across the Gulf, North Africa and Southeast Asia.",
+          "icon": "🌍",
+          "image": "",
+          "bullets": []
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "items": [
+        { "num": "20+", "label": "Countries served — replace with your real number" },
+        { "num": "500+", "label": "Systems delivered — replace with your real number" },
+        { "num": "10+", "label": "Years in solar trade — replace with your real number" },
+        { "num": "24/7", "label": "Pre-sales & after-sales support" }
+      ]
+    },
+    {
+      "type": "cards",
+      "kicker": "Our Team",
+      "title": "The People Behind Gaoteng",
+      "text": "Upload a real photo in each card's image field and replace the names and bios below — everything here is fully editable from the admin panel, no code needed.",
+      "theme": "white",
+      "columns": "3",
+      "cards": [
+        {
+          "kicker": "Founder",
+          "title": "Your Name",
+          "text": "Short bio — e.g. years in solar trading, focused on Africa & India. Replace with your real intro.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "Sales & Engineering",
+          "title": "Team Member",
+          "text": "Short bio — system design and customer support. Replace with your real intro.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        },
+        {
+          "kicker": "Operations & Logistics",
+          "title": "Team Member",
+          "text": "Short bio — shipping, documentation and after-sales. Replace with your real intro.",
+          "icon": "",
+          "image": "",
+          "bullets": []
+        }
+      ]
+    },
+    {
       "type": "band",
-      "title": "Let's Build Something Reliable",
-      "text": "Talk to our export team about your project today.",
+      "title": "Let's Build the Right System Together",
+      "text": "Tell us your load and market — we'll design and quote a complete storage solution.",
       "btnText": "CONTACT US",
       "btnLink": "contact.html"
     }
