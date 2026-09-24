@@ -4,23 +4,24 @@
       "type": "phead",
       "crumb": "Home / About Us",
       "title": "About Gaoteng Energy",
-      "text": "Your solar + storage supplier and system integrator for home and commercial projects."
+      "text": "Your solar + storage supplier and system integrator for home and commercial projects.",
+      "image": "/content/uploads/背景图.png"
     },
     {
-      "type": "split",
-      "kicker": "Who We Are",
-      "title": "We Source and Integrate — You Get One Reliable System",
+      "btnText": "See Our Solutions",
+      "theme": "white",
       "text": "Gaoteng Energy is a supplier and integrator of solar and energy-storage systems. We are not a factory: we partner with a vetted network of certified manufacturers to source inverters, LiFePO4 batteries, solar panels and balance-of-system parts, then design them into complete systems that fit your project.\n\nOur focus is home energy storage and commercial & industrial (C&I) energy storage — for families who want backup power, and businesses that want lower energy costs and resilience.",
       "bullets": [
         "Supplier & system integrator — not a manufacturer",
         "Full-series sourcing across a vetted supply chain",
         "Home ESS and C&I ESS specialists"
       ],
-      "btnText": "See Our Solutions",
-      "btnLink": "solutions.html",
-      "image": "",
       "imageSide": "right",
-      "theme": ""
+      "kicker": "Who We Are",
+      "btnLink": "solutions.html",
+      "title": "We Source and Integrate — You Get One Reliable System",
+      "type": "split",
+      "image": "/content/uploads/企业荣誉.png"
     },
     {
       "type": "cards",
@@ -67,7 +68,7 @@
       "kicker": "How We Work",
       "title": "From Inquiry to Commissioning",
       "text": "",
-      "theme": "dark",
+      "theme": "soft",
       "columns": "4",
       "cards": [
         {
@@ -139,20 +140,20 @@
       ]
     },
     {
-      "type": "split",
-      "kicker": "Why An Integrator",
-      "title": "Why Work With a Supplier-Integrator",
+      "btnText": "Talk to Our Team",
+      "theme": "white",
       "text": "A single-brand seller can only offer what they make. As an integrator, we assemble the best-fit parts for your case, keep one warranty window, and speak your language — English, and French for West Africa.\n\nFor African and Indian projects we pay special attention to high-temperature performance, dust resistance and local serviceability, because that is where systems live or fail.",
       "bullets": [
         "Neutral component selection",
         "One warranty & one contact",
         "Hot-climate & local-market expertise"
       ],
-      "btnText": "Talk to Our Team",
-      "btnLink": "contact.html",
-      "image": "",
       "imageSide": "left",
-      "theme": ""
+      "kicker": "Why An Integrator",
+      "btnLink": "contact.html",
+      "title": "Why Work With a Supplier-Integrator",
+      "type": "split",
+      "image": "/content/uploads/生产车间4.png"
     },
     {
       "type": "cards",
@@ -199,10 +200,22 @@
     {
       "type": "stats",
       "items": [
-        { "num": "20+", "label": "Countries served — replace with your real number" },
-        { "num": "500+", "label": "Systems delivered — replace with your real number" },
-        { "num": "10+", "label": "Years in solar trade — replace with your real number" },
-        { "num": "24/7", "label": "Pre-sales & after-sales support" }
+        {
+          "num": "20+",
+          "label": "Countries served — replace with your real number"
+        },
+        {
+          "num": "500+",
+          "label": "Systems delivered — replace with your real number"
+        },
+        {
+          "num": "10+",
+          "label": "Years in solar trade — replace with your real number"
+        },
+        {
+          "num": "24/7",
+          "label": "Pre-sales & after-sales support"
+        }
       ]
     },
     {
