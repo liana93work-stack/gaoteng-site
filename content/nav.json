@@ -3,7 +3,7 @@
     {
       "label": "Home",
       "link": "index.html",
-      "highlight": false
+      "highlight": true
     },
     {
       "label": "About",
@@ -18,16 +18,6 @@
     {
       "label": "Solutions",
       "link": "solutions.html",
-      "highlight": false
-    },
-    {
-      "label": "Markets",
-      "link": "markets.html",
-      "highlight": false
-    },
-    {
-      "label": "Cases",
-      "link": "cases.html",
       "highlight": false
     },
     {
