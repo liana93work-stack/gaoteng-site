@@ -108,8 +108,15 @@
   var BLOCKS = {
     hero: function (b) {
       var photo = b.image ? " photo" : "";
-      var style = 'padding:0';
-      if (b.image) style += ';background-image:linear-gradient(rgba(' + heroRgb() + ',.62), rgba(' + heroRgb() + ',.78)), url(' + esc(b.image) + ");background-size:cover;background-position:center";
+      var style = "padding:0";
+      if (b.image) {
+        /* 默认显示图片原色（不叠任何色层）；仅当显式勾选遮罩时才加深色，便于白字阅读 */
+        var img = "url(" + esc(b.image) + ")";
+        var bg = b.overlay
+          ? "linear-gradient(rgba(" + heroRgb() + ",.55), rgba(" + heroRgb() + ",.72)), " + img
+          : img;
+        style += ";background-image:" + bg + ";background-size:cover;background-position:center";
+      }
       var btns = "";
       if (b.btn1Text) btns += '<a href="' + esc(b.btn1Link || "#") + '" class="btn light">' + esc(b.btn1Text) + "</a>";
       if (b.btn2Text) btns += '<a href="' + esc(b.btn2Link || "#") + '" class="btn outline">' + esc(b.btn2Text) + "</a>";
@@ -124,7 +131,12 @@
     },
 
     phead: function (b) {
-      return '<section class="phead"><span class="arc"></span><div class="wrap">' +
+      /* 有背景图时：显示图片原色（不叠色层），白字用文字阴影保证可读 */
+      var ph = b.image ? " photo" : "";
+      var style = b.image
+        ? ";background-image:url(" + esc(b.image) + ");background-size:cover;background-position:center"
+        : "";
+      return '<section class="phead' + ph + '" style="' + style + '"><span class="arc"></span><div class="wrap">' +
         (b.crumb ? '<div class="crumb">' + esc(b.crumb) + "</div>" : "") +
         "<h1>" + esc(b.title || "") + "</h1>" +
         (b.text ? "<p>" + esc(b.text) + "</p>" : "") +
@@ -361,8 +373,9 @@
     if (!s || !s.heroBg) return;
     var hero = document.querySelector(".hero");
     if (hero && !hero.className.match(/photo/)) {
-      var rgb = hexToRgb(RESOLVED.navy);
-      hero.style.backgroundImage = "linear-gradient(rgba(" + rgb + ",.55), rgba(" + rgb + ",.72)), url(" + s.heroBg + ")";
+      /* 「样式设置 → 首页背景图」：同样按图片原色显示，不叠加色层 */
+      hero.className += " photo";
+      hero.style.backgroundImage = "url(" + s.heroBg + ")";
       hero.style.backgroundSize = "cover";
       hero.style.backgroundPosition = "center";
     }
