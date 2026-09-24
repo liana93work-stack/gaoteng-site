@@ -235,11 +235,33 @@
     },
     newslist: function (b) {
       var items = DATA.news && DATA.news.items;
-      var inner = (items && items.length)
-        ? '<div class="cards">' + items.map(function (n) {
-            return cardHTML({ kicker: n.date, title: n.title, text: n.body, icon: "📰" });
-          }).join("") + "</div>"
-        : '<div class="cards"></div><p style="color:var(--muted);font-size:13px">（此处自动读取「新闻库」，发布后显示你填的新闻）</p>';
+      var inner;
+      if (items && items.length) {
+        var cats = [];
+        items.forEach(function (n) {
+          var c = (n.category || "").trim().toLowerCase();
+          if (c && cats.indexOf(c) < 0) cats.push(c);
+        });
+        var fcount = Math.min(6, items.length);
+        var cards = items.map(function (n, i) {
+          var cat = (n.category || "").trim().toLowerCase();
+          var feat = i < fcount ? ' data-featured="1"' : "";
+          var kicker = esc(n.category || n.date || "");
+          var icon = n.icon ? '<div class="thumb thumb-emoji">' + esc(n.icon) + "</div>" : "";
+          var more = n.readMore
+            ? '<a class="read-more" style="display:inline-block;margin-top:8px;color:var(--blue);font-weight:600" href="' + esc(n.readMore) + '">Read guide &rarr;</a>'
+            : "";
+          return '<div class="card" data-cat="' + esc(cat) + '"' + feat + '>' + icon + '<div class="body"><div class="k">' + kicker + "</div><h3>" + esc(n.title || "") + "</h3><p>" + nl2br(n.body || "") + "</p>" + more + "</div></div>";
+        }).join("");
+        var bar = '<div class="news-filter"><span class="nf-btn active">Featured</span><span class="nf-btn">All</span>';
+        cats.forEach(function (c) {
+          bar += '<span class="nf-btn">' + esc(c.charAt(0).toUpperCase() + c.slice(1)) + "</span>";
+        });
+        bar += "</div>";
+        inner = bar + '<div class="news-cards cards">' + cards + "</div>";
+      } else {
+        inner = '<div class="news-filter"><span class="nf-btn active">Featured</span><span class="nf-btn">All</span></div><div class="cards"></div><p style="color:var(--muted);font-size:13px">（此处自动读取「新闻库」，发布后显示你填的新闻）</p>';
+      }
       return '<section class="' + themeClass(b.theme) + '"><div class="wrap">' + secHead(b) + inner + centerBtn(b.btnText, b.btnLink) + "</div></section>";
     },
     text: function (b) {
@@ -352,6 +374,13 @@
     '.menu a{color:var(--c-nav)} .menu{font-size:var(--fs-nav)}' +
     '.btn{font-size:var(--fs-btn)} .btn.light{color:var(--c-btn)}' +
     '.hero h1,.phead h1,.band h2{font-family:var(--font-head)}' +
+    /* 知识库筛选器保险层：保证后台预览的筛选条/精选标记即时有样式 */
+    '.news-filter{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 28px}' +
+    '.nf-btn{appearance:none;cursor:pointer;font:inherit;font-size:14px;font-weight:600;line-height:1.2;padding:7px 16px;border-radius:999px;border:1px solid var(--blue);background:transparent;color:var(--blue);transition:.15s}' +
+    '.nf-btn:hover{background:rgba(var(--blue-rgb),.12)}' +
+    '.nf-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}' +
+    '.card[data-featured="1"]{border-top:3px solid var(--blue)}' +
+    '.news-cards.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}' +
     '</style>' +
     '</head><body>' +
     '<div class="gt-chrome">' + TOPBAR + '</div>' +
