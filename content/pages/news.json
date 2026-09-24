@@ -2,22 +2,156 @@
   "sections": [
     {
       "type": "phead",
-      "crumb": "Home / News",
-      "title": "News & Insights",
-      "text": "Product updates, market trends and energy storage tips."
+      "crumb": "Home / Solar Guide",
+      "title": "Solar Guide & Knowledge Base",
+      "text": "Practical, no-nonsense guides on solar panels, inverters and LiFePO4 storage — written to stay useful for years."
     },
     {
       "type": "newslist",
       "kicker": "",
-      "title": "",
-      "text": "",
-      "theme": ""
+      "title": "Featured Guides",
+      "text": "Start here — eighteen practical reads. Tap any card to jump to the full article below."
+    },
+    {
+      "type": "text",
+      "anchor": "art-1",
+      "kicker": "Basics",
+      "title": "How a Home Solar + Battery System Works",
+      "body": "A home solar + storage system turns sunlight into electricity you can use now and save for later. Understanding its four building blocks helps you choose the right parts and avoid costly mismatches.\n\nSolar panels capture sunlight and produce direct current (DC) electricity. A charge controller — usually built into the inverter — regulates that flow so the battery charges safely.\n\nThe battery stores energy as DC for use when the sun is down or the grid fails. The inverter then converts DC into the alternating current (AC) your appliances use (230V/50Hz in most of Africa and India, 120V/60Hz in some regions).\n\nA typical day: panels power your home first, any surplus charges the battery, and at night or during an outage the battery discharges back through the inverter. Size each part to match the others and you avoid wasted money or unexpected blackouts."
+    },
+    {
+      "type": "split",
+      "anchor": "art-2",
+      "kicker": "Batteries",
+      "title": "What Is LiFePO4 and Why It Lasts Longer",
+      "text": "For years lead-acid batteries dominated off-grid storage. Today lithium iron phosphate — LiFePO4, often written LFP — has become the standard for home systems, and for good reasons. It costs more upfront, but its lower cost per cycle over a long life usually makes it the cheaper choice in the end.",
+      "bullets": [
+        "Cycle life: 2,000–6,000+ cycles vs roughly 500–1,000 for lead-acid",
+        "Safer chemistry: very stable, far less prone to overheating or thermal runaway",
+        "More usable capacity in less space and weight per kWh",
+        "Low self-discharge and essentially maintenance-free",
+        "Handles partial charging well, so you are not forced into full cycles"
+      ],
+      "imageSide": "right",
+      "theme": "soft"
+    },
+    {
+      "type": "text",
+      "anchor": "art-3",
+      "kicker": "Inverters",
+      "title": "Off-Grid vs Grid-Tied vs Hybrid Inverters",
+      "body": "An inverter is the brain of the system, but not all inverters work the same way. The three common types suit very different situations.\n\nGrid-tied: connects to the utility grid and feeds surplus power back. It is the cheapest option and great where the grid is stable — but it shuts down automatically during a grid outage, so it provides no backup.\n\nOff-grid: runs with no grid connection at all. The battery is central, and the system is sized for worst-case days. Best for remote homes and villages without reliable power.\n\nHybrid: combines both. It can prioritize solar → battery → grid, use the grid as a backup source, and often accept a generator input. For areas with frequent outages — common across parts of Africa and India — hybrid is usually the most practical choice.\n\nTip: 'hybrid' features vary a lot between products. Check whether it supports stacking (parallel units), generator start, and the backup switchover time before you buy."
+    },
+    {
+      "type": "text",
+      "anchor": "art-4",
+      "kicker": "Sizing",
+      "title": "How to Size a Home Battery (Step by Step)",
+      "body": "Sizing a battery is not guesswork. Follow five steps using your own real loads.\n\nStep 1 — List essentials: fridge, lights, fans, router, TV, and anything you must keep running. Note each item's wattage (usually on a label).\n\nStep 2 — Estimate daily energy: for each item, watts × hours used per day = watt-hours (Wh). Add them up to get your daily kWh.\n\nStep 3 — Decide backup time: one day, two days, or more? Multiply your daily kWh by the number of days you want to cover.\n\nStep 4 — Apply depth of discharge: LiFePO4 is safely usable to about 80%, so divide by 0.8. Battery capacity (Wh) ≈ daily kWh × backup days ÷ 0.8.\n\nStep 5 — Match the inverter: its continuous wattage should exceed your peak load (everything on at once) by 20–30%. Size for essentials, not the whole house, to keep the system affordable."
+    },
+    {
+      "type": "text",
+      "anchor": "art-5",
+      "kicker": "Hot Climate",
+      "title": "Protecting Batteries in Hot Climates (Africa & India)",
+      "body": "Heat is the quiet enemy of battery life. Roughly speaking, every 10°C above 25°C can halve a battery's expected cycle life. In hot regions this matters as much as the battery you buy.\n\nInstall in shade: never place batteries in direct sun or inside a sealed metal box. A ventilated, shaded enclosure is ideal.\n\nKeep it cool: aim for 20–35°C. Allow airflow around the unit and avoid stacking it against inverters or charge controllers, which give off their own heat.\n\nA small ventilation fan or louvered door helps in enclosed spaces. If you can monitor temperature, do — early heat is easier to fix than a failed bank.\n\nFor long idle periods, store at 50–80% charge rather than a full 100%. This is kinder to the cells than sitting fully charged for months."
+    },
+    {
+      "type": "text",
+      "anchor": "art-6",
+      "kicker": "Buying",
+      "title": "How to Read a Warranty — Don't Trust '10 Years'",
+      "body": "A '10-year warranty' printed on a box tells you almost nothing by itself. What matters is what the warranty actually guarantees.\n\nThroughput: look for total energy the battery is guaranteed to deliver — often stated as a cycle count (e.g., 6,000 cycles) or a lifetime kWh figure. This is far more meaningful than years alone.\n\nCapacity retention: a good warranty promises a minimum remaining capacity at the end of the term, commonly ≥80%.\n\nExclusions: read what is NOT covered — shipping, labor, misuse, flood, or grid events. A vague '10 years' that excludes everything is worthless.\n\nWho honors it: confirm whether the manufacturer or the seller stands behind it, and for how long in your local market. A 10-year / 6,000-cycle / 80%-retention warranty from a responsive supplier beats a vague claim from an unknown brand."
+    },
+    {
+      "type": "text",
+      "anchor": "art-7",
+      "kicker": "Reference",
+      "title": "Solar Glossary: Key Terms A–Z",
+      "body": "When you start shopping you meet a wall of terms. Here are the ones that actually matter, in plain English.\n\n**AC (Alternating Current)** — The standard electricity your appliances use (230V/50Hz across most of Africa and India). Inverters turn the battery's DC into AC.\n\n**DC (Direct Current)** — Electricity flowing one way, as made by panels and stored in batteries.\n\n**Charge Controller** — Regulates current into the battery so it charges safely. In many home systems it is built into the inverter.\n\n**Cycle (One Charge/Discharge Cycle)** — Using a battery from full to empty and back once. Lifespan is measured in cycles; LiFePO4 typically gives 2,000–6,000+.\n\n**Depth of Discharge (DoD)** — How much capacity you can safely use. LiFePO4 is commonly rated to 80–90% DoD, versus about 50% for lead-acid.\n\n**Hybrid Inverter** — Draws from solar, battery and grid, and often accepts a generator. The usual choice where outages are frequent.\n\n**Inverter Efficiency** — The share of DC that survives conversion to AC. Look for 90%+ under typical load.\n\n**MPPT (Maximum Power Point Tracking)** — A more efficient charging method than older PWM. Most modern home systems use MPPT.\n\n**kWh (Kilowatt-hour)** — Energy unit: 1,000 watts for one hour. Your daily household kWh is the key number for sizing a battery.\n\n**kW (Kilowatt)** — Power, or instantaneous rate. An inverter's kW is its maximum continuous output.\n\n**LiFePO4 (Lithium Iron Phosphate / LFP)** — A safe, long-lived lithium chemistry now standard for home storage.\n\n**Self-Discharge** — A battery losing charge while unused. LiFePO4 self-discharges far slower than lead-acid.\n\n**SoC (State of Charge)** — Current charge level as a percentage, like a fuel gauge.\n\n**Surge / Peak Power** — The brief extra power some appliances need at startup (motors, compressors). Size the inverter for this, not just running watts.\n\n**Warranty Throughput** — Total energy a battery is guaranteed to deliver over its life, often shown as cycles or lifetime kWh. More useful than years alone.\n\n**Pure Sine Wave** — A clean output waveform that sensitive electronics need. Avoid cheap modified-sine units for anything beyond simple loads."
+    },
+    {
+      "type": "text",
+      "anchor": "art-8",
+      "kicker": "Buying",
+      "title": "Pre-Purchase Self-Check List",
+      "body": "Before you pay for a system, work through these nine checks. They take about an hour and can save a costly mistake.\n\n1. List your essential loads — fridge, lights, fans, router, TV, water pump. Note each one's wattage from its label.\n\n2. Estimate your daily kWh by multiplying watts × hours used, then add them up. This single number drives everything else.\n\n3. Decide backup days — how long must you run through a grid outage or cloudy stretch? One, two, or more?\n\n4. Check your roof or ground space and shading. Even mature trees cut output sharply; south-facing (northern hemisphere) or north-facing (southern hemisphere) is usually best.\n\n5. Confirm your local voltage and frequency — 230V/50Hz is common in Africa and India, but verify before ordering.\n\n6. Choose inverter type — grid-tied, off-grid, or hybrid — based on whether you have a reliable grid and need backup.\n\n7. Match the battery to your climate. In hot regions, plan ventilation and shade from the start; heat shortens battery life more than almost anything.\n\n8. Read the warranty's throughput and capacity-retention figures, not just the year count.\n\n9. Get the full delivered price — panels, inverter, battery, cabling, mounting, installation and any import duty. A cheap headline unit with expensive extras is not a bargain.\n\nIf a seller cannot help you answer these, that is itself useful information."
+    },
+    {
+      "type": "text",
+      "anchor": "art-9",
+      "kicker": "Buying",
+      "title": "How to Read a Product Datasheet",
+      "body": "When you compare products, the spec sheet is where the truth lives. Here is what to look for.\n\nStart with rated power and surge power (inverter). Rated power is what it sustains; surge is the brief boost for motor-driven appliances. A 3kW inverter that cannot surge to 6kW may trip when your fridge compressor starts.\n\nFor panels, weight the numbers by realistic conditions. 'Peak' or 'STC' watts are lab figures; 'NOCT' or real-world watts are closer to what you get in heat. Efficiency tells you how much sunlight becomes electricity — higher is better, though the gap between good panels is small.\n\nFor batteries, read cycle life at a stated DoD, and the warranty throughput (lifetime kWh or cycle count). Capacity in kWh is only meaningful with the discharge rate it is rated at.\n\nWatch the fine print: 'maximum' versus 'continuous' output, 'peak' versus 'real' watts, and warranties that exclude almost everything. A number without its test condition is marketing, not data.\n\nFinally, compare like for like. Two products that look similar on the front page can differ hugely once you read the conditions underneath."
+    },
+    {
+      "type": "text",
+      "anchor": "art-10",
+      "kicker": "Basics",
+      "title": "Common Myths About Home Solar + Storage",
+      "body": "Good information saves money. Here are five beliefs that quietly cost buyers.\n\nMyth 1 — 'More watts always means more power.' A 600W panel in shade or heat delivers far less than its label. Real output depends on placement, temperature and wiring, not the number on the box.\n\nMyth 2 — 'A bigger battery is always safer.' An oversized battery you never deeply cycle is wasted money. Size to your actual loads and backup days.\n\nMyth 3 — 'Solar works without the sun, so I don't need a battery.' Panels produce nothing at night and, with grid-tied inverters, nothing during an outage. Storage is what gives you backup.\n\nMyth 4 — 'All LiFePO4 is the same.' Cells, BMS quality, cooling and assembly vary widely between brands. The chemistry name is not a quality guarantee.\n\nMyth 5 — 'A 10-year warranty means it will last 10 years.' Without throughput and capacity-retention terms, that promise may cover almost nothing. Read the conditions, not the headline.\n\nNone of this means solar is hard — it means buying with your eyes open beats buying on slogans."
+    },
+    {
+      "type": "text",
+      "anchor": "art-11",
+      "kicker": "Solutions",
+      "title": "Power for a Typical Family Home",
+      "body": "In many homes across Africa and India, the priority is keeping the essentials on: lights, fans, the fridge, a TV and the router. A practical family setup pairs rooftop or ground-mounted panels with a hybrid inverter and a LiFePO4 battery sized to one or two backup days.\n\nA 3–5 kWh daily load is common for an essential-only setup. That points to roughly a 3–5 kW hybrid inverter and a 5–10 kWh battery, with panels sized to recharge the battery in a typical sunny day (often 2–4 kW of panels).\n\nStart with essentials, not the whole house. Add a washing machine or water pump later only if the inverter can surge to handle their motors. This keeps the first system affordable and any later upgrade simple.\n\nEvery home is different — treat these numbers as a starting point and size from your own appliance list."
+    },
+    {
+      "type": "text",
+      "anchor": "art-12",
+      "kicker": "Solutions",
+      "title": "Keeping a Small Shop or Office Running",
+      "body": "A small shop, clinic or office loses money the moment the lights go out. The goal here is business continuity, not just comfort.\n\nPrioritize the loads that actually earn or protect revenue: lighting, POS and card machines, refrigeration for stock, and internet. A hybrid inverter with automatic switchover keeps these running through an outage with no manual action.\n\nFor a shop with a few hundred watts of critical load, a 5–10 kWh battery often covers a full business day. Add generator input if outages run longer than the battery allows.\n\nBecause downtime is the real cost, favour reliability and a responsive supplier over the cheapest unit. A system that quietly runs for years beats a bargain that fails in month six."
+    },
+    {
+      "type": "text",
+      "anchor": "art-13",
+      "kicker": "Solutions",
+      "title": "Backup Power Where the Grid Is Unreliable",
+      "body": "In areas with frequent outages, the battery — not the grid — becomes your primary source at the moments that matter. Hybrid architecture is usually the right fit.\n\nSet the inverter to use solar and battery first, and only pull from the grid when the battery is low. This way you ride through most outages without noticing, while still keeping the grid as a safety net.\n\nSize the battery for your longest realistic outage, not the average. If blackouts last a day or two, plan for two backup days from the start rather than regretting a too-small bank later.\n\nKeep the battery cool and ventilated (see our hot-climate guide) — unreliable grids and high heat often go together, and heat is what quietly shortens battery life."
+    },
+    {
+      "type": "text",
+      "anchor": "art-14",
+      "kicker": "Solutions",
+      "title": "Electricity for Off-Grid Villages and Remote Sites",
+      "body": "Where there is no grid at all, the battery is central and the system must be sized for worst-case days, not just sunny ones.\n\nAn off-grid design pairs larger panel capacity with a deeper battery bank, because you cannot fall back on the utility. A typical remote home might need 5–15 kWh of storage and enough panels to recover it even after a cloudy day.\n\nEfficiency matters more off-grid: efficient appliances (LED, DC fans, efficient fridges) directly reduce the size and cost of the whole system. Spend on efficient loads before adding more panels.\n\nPlan for maintenance access. A remote system should be simple to service, with parts you can actually obtain locally. Complexity is the enemy of reliability far from support."
+    },
+    {
+      "type": "text",
+      "anchor": "art-15",
+      "kicker": "Our Story",
+      "title": "Why We Focus on Africa & India",
+      "body": "We focus on Africa and India because that is where reliable, affordable power changes daily life the most — for families, shops, clinics and farms.\n\nThese markets share real conditions: strong sun, hot climates, and grids that are not always dependable. That combination is exactly what rooftop solar plus storage solves best.\n\nWe are a supplier and integrator, not a factory. That means we select products from established manufacturers against the conditions our customers actually face, rather than promoting one house brand.\n\nOur job is to match the right configuration to your site — and to explain it in plain language, so you can buy with confidence."
+    },
+    {
+      "type": "text",
+      "anchor": "art-16",
+      "kicker": "Our Story",
+      "title": "How We Choose the Products We Offer",
+      "body": "We would rather offer fewer, well-chosen products than a long list of unknowns. Our selection rests on a few tests.\n\nProven chemistry and cells: we favour LiFePO4 from manufacturers with verifiable cycle-life and safety data, not just a low price.\n\nReal specifications: we read the datasheet conditions (rated vs surge power, NOCT vs peak watts, cycle life at stated DoD). A number without its condition is not a fact we will build on.\n\nSupport and warranty that works locally: a great spec is worthless if no one honours it where you live. We weigh the supplier's responsiveness as heavily as the product.\n\nFit for heat: because so many of our customers are in hot regions, we bias toward designs that tolerate high ambient temperatures.\n\nWe are not perfect, and we say so — but every product we list has passed these checks first."
+    },
+    {
+      "type": "text",
+      "anchor": "art-17",
+      "kicker": "Our Story",
+      "title": "Our After-Sales & Long-Term View",
+      "body": "Solar is a long-game purchase. A system should serve you for many years, so our relationship does not end at the sale.\n\nWe document what we ship — model, specifications and the warranty terms that actually apply in your market — so you are never guessing later.\n\nWe answer the practical questions: how to size, how to install safely, how to keep the battery healthy in heat. Most issues are prevented by good setup, not fixed by warranty claims.\n\nWhen something does go wrong, a clear warranty with stated throughput and capacity retention is faster to resolve than a vague '10 years'. We stand behind the terms we publish.\n\nOur measure of success is a system still running well years later — not a single shipment."
+    },
+    {
+      "type": "text",
+      "anchor": "art-18",
+      "kicker": "Buying",
+      "title": "Avoiding Low-Price Traps",
+      "body": "A low headline price is often the most expensive choice in solar. Here is what to watch.\n\n'Free' or missing specifications: if a seller cannot show rated vs surge power, cycle life at a stated DoD, or NOCT watts, that gap is a risk you are buying.\n\nUnknown cells: a battery sold only by capacity, with no named chemistry or cell brand, can fail early. LiFePO4 from a known source is worth more than an anonymous bargain.\n\nShipping and import not included: a cheap ex-factory price can double once freight, duty and last-mile delivery are added. Always compare delivered totals.\n\nVague warranties: a '10 years' with no throughput or capacity-retention figure protects the seller, not you.\n\nThe honest test: ask the seller to explain the spec sheet. A supplier who can, and does, is usually the better value — even if the sticker is a little higher."
     },
     {
       "type": "band",
-      "title": "Subscribe for Updates",
-      "text": "Get product news and energy tips — no spam.",
-      "btnText": "SUBSCRIBE",
+      "title": "Need a recommendation for your site?",
+      "text": "Tell us your loads, location and budget — we will suggest a configuration that fits.",
+      "btnText": "CONTACT US",
       "btnLink": "contact.html"
     }
   ]
