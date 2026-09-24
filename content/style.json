@@ -3,7 +3,7 @@
   "fontSize": 18,
   "primaryColor": "#7fb6ed",
   "bgColor": "#f6f8f8",
-  "heroBg": "/content/uploads/总背景图.webp",
+  "heroBg": "/content/uploads/背景图.png",
   "preset": "custom",
   "navyColor": "#035c83"
 }
