@@ -1,14 +1,15 @@
 {
   "sections": [
     {
-      "type": "hero",
-      "title": "Reliable Power for\nCommercial & Industrial Energy",
-      "subtitle": "Scalable energy storage, hybrid inverters and solar solutions engineered to reduce energy costs, enhance resilience, and keep your operations running reliably.",
       "btn1Text": "EXPLORE OUR SOLUTIONS",
-      "btn1Link": "solutions.html",
       "btn2Text": "GET A QUOTE",
+      "btn1Link": "solutions.html",
+      "overlay": false,
       "btn2Link": "contact.html",
-      "image": "/content/uploads/总背景图.webp"
+      "subtitle": "Scalable energy storage, hybrid inverters and solar solutions engineered to reduce energy costs, enhance resilience, and keep your operations running reliably.",
+      "title": "Reliable Power for\nCommercial & Industrial Energy",
+      "type": "hero",
+      "image": "/content/uploads/总背景图.jpg"
     },
     {
       "type": "stats",
@@ -42,7 +43,7 @@
     },
     {
       "btnText": "See Solutions",
-      "theme": "soft",
+      "theme": "white",
       "text": "Whether you are powering a home, a remote site or a large facility, we size the right combination of inverter, panel and battery to match your load and budget.",
       "bullets": [
         "Residential energy storage & backup",
@@ -54,14 +55,14 @@
       "btnLink": "solutions.html",
       "title": "Power for Every Scenario",
       "type": "split",
-      "image": ""
+      "image": "/content/uploads/背景图4.webp"
     },
     {
       "type": "cards",
       "kicker": "Why Gaoteng",
       "title": "A Manufacturing Partner, Not Just a Supplier",
       "text": "",
-      "theme": "dark",
+      "theme": "white",
       "columns": "3",
       "cards": [
         {
@@ -69,7 +70,7 @@
           "title": "Own Factory",
           "text": "Vertically integrated production with strict QC on every cell, board and finished unit.",
           "icon": "",
-          "image": "",
+          "image": "/content/uploads/万洋厂房.png",
           "bullets": []
         },
         {
@@ -77,7 +78,7 @@
           "title": "Certified & Safe",
           "text": "CE, IEC, UL and BIS-ready products with full test reports for smooth customs clearance.",
           "icon": "",
-          "image": "",
+          "image": "/content/uploads/企业荣誉.png",
           "bullets": []
         },
         {
@@ -85,7 +86,7 @@
           "title": "OEM / ODM",
           "text": "Your logo, packaging, voltage spec and firmware — built for your market.",
           "icon": "",
-          "image": "",
+          "image": "/content/uploads/生产车间4.png",
           "bullets": []
         }
       ]
