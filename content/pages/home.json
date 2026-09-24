@@ -8,15 +8,27 @@
       "btn1Link": "solutions.html",
       "btn2Text": "GET A QUOTE",
       "btn2Link": "contact.html",
-      "image": ""
+      "image": "/content/uploads/总背景图.jpg"
     },
     {
       "type": "stats",
       "items": [
-        { "num": "Home + C&I", "label": "Energy Storage Systems" },
-        { "num": "One-stop", "label": "Supply Chain Sourcing" },
-        { "num": "Tailor-made", "label": "Custom Solutions" },
-        { "num": "Worldwide", "label": "Shipping & Support" }
+        {
+          "num": "Home + C&I",
+          "label": "Energy Storage Systems"
+        },
+        {
+          "num": "One-stop",
+          "label": "Supply Chain Sourcing"
+        },
+        {
+          "num": "Tailor-made",
+          "label": "Custom Solutions"
+        },
+        {
+          "num": "Worldwide",
+          "label": "Shipping & Support"
+        }
       ]
     },
     {
@@ -29,36 +41,36 @@
       "theme": "soft"
     },
     {
-      "type": "split",
-      "kicker": "Who We Are",
-      "title": "A Solar + Storage Supplier & System Integrator",
+      "btnText": "About Gaoteng",
+      "theme": "white",
       "text": "Gaoteng Energy is a supplier and integrator of home and commercial energy storage systems — not a factory. We source a full series of proven inverters, LiFePO4 batteries, solar panels and balance-of-system components from a vetted supply chain, then design them into one reliable system for your project.\n\nThat means you get neutral component selection, competitive one-stop sourcing, and a single partner who sizes, sources and supports your system end to end.",
       "bullets": [
         "Supplier & integrator — not a manufacturer",
         "Full-series sourcing: inverters, batteries, panels, BOS",
         "Custom design for your load, climate and budget"
       ],
-      "btnText": "About Gaoteng",
-      "btnLink": "about.html",
-      "image": "",
       "imageSide": "right",
-      "theme": ""
+      "kicker": "Who We Are",
+      "btnLink": "about.html",
+      "title": "A Solar + Storage Supplier & System Integrator",
+      "type": "split",
+      "image": "/content/uploads/背景图4.webp"
     },
     {
-      "type": "split",
-      "kicker": "Solutions",
-      "title": "Power for Every Scenario",
+      "btnText": "See Solutions",
+      "theme": "white",
       "text": "Whether you are powering a home, a remote site or a large facility, we size the right combination of inverter, panel and battery to match your load and budget.",
       "bullets": [
         "Residential energy storage & backup",
         "Off-grid cabins, RVs and telecom sites",
         "Commercial & industrial peak shaving"
       ],
-      "btnText": "See Solutions",
-      "btnLink": "solutions.html",
-      "image": "",
       "imageSide": "right",
-      "theme": ""
+      "kicker": "Solutions",
+      "btnLink": "solutions.html",
+      "title": "Power for Every Scenario",
+      "type": "split",
+      "image": "/content/uploads/优势-背景图2.png"
     },
     {
       "type": "cards",
