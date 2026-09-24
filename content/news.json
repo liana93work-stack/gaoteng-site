@@ -36,13 +36,6 @@
       "readMore": "#art-5"
     },
     {
-      "category": "Buying",
-      "icon": "🛡️",
-      "title": "How to Read a Warranty",
-      "body": "Why a bare '10 years' on the box tells you almost nothing.",
-      "readMore": "#art-6"
-    },
-    {
       "category": "Reference",
       "icon": "📖",
       "title": "Solar Glossary: Key Terms A–Z",
@@ -79,38 +72,10 @@
     },
     {
       "category": "Solutions",
-      "icon": "🏪",
-      "title": "Keeping a Small Shop or Office Running",
-      "body": "Keep lights, POS, fridges and internet on through outages — business continuity, not comfort.",
-      "readMore": "#art-12"
-    },
-    {
-      "category": "Solutions",
       "icon": "🔌",
       "title": "Backup Power Where the Grid Is Unreliable",
       "body": "Where outages are frequent, make the battery your primary source and the grid the backup.",
       "readMore": "#art-13"
-    },
-    {
-      "category": "Solutions",
-      "icon": "🌍",
-      "title": "Electricity for Off-Grid Villages",
-      "body": "No grid at all? Size for worst-case days, prioritise efficient loads, plan for service.",
-      "readMore": "#art-14"
-    },
-    {
-      "category": "Our Story",
-      "icon": "🌍",
-      "title": "Why We Focus on Africa & India",
-      "body": "Why we concentrate on Africa and India — and why we are a supplier, not a factory.",
-      "readMore": "#art-15"
-    },
-    {
-      "category": "Our Story",
-      "icon": "🧭",
-      "title": "How We Choose the Products We Offer",
-      "body": "The checks every product passes before we list it: cells, specs, local support, heat.",
-      "readMore": "#art-16"
     },
     {
       "category": "Our Story",
@@ -118,13 +83,6 @@
       "title": "Our After-Sales & Long-Term View",
       "body": "Solar is a long-game purchase. Our job does not end at the sale.",
       "readMore": "#art-17"
-    },
-    {
-      "category": "Buying",
-      "icon": "⚠️",
-      "title": "Avoiding Low-Price Traps",
-      "body": "A low sticker price is often the most expensive choice. What to watch before you pay.",
-      "readMore": "#art-18"
     }
   ]
 }
