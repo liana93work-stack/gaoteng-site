@@ -158,6 +158,7 @@
     },
 
     split: function (b) {
+      var id = b.anchor ? ' id="' + esc(b.anchor) + '"' : "";
       var media = b.image
         ? '<div class="gt-media"><img class="gt-img" src="' + esc(b.image) + '" alt="' + esc(b.title || "") + '"/></div>'
         : '<div class="gt-media">' + nextArt() + "</div>";
@@ -168,7 +169,7 @@
       var txt = "<div>" +
         (b.kicker ? '<div class="kick" style="color:var(--blue);font-weight:800;letter-spacing:2px;font-size:13px">' + esc(b.kicker) + "</div>" : "") +
         "<h2>" + esc(b.title || "") + "</h2>" + paras(b.text) + ul + btn + "</div>";
-      return '<section class="' + themeClass(b.theme) + '"><div class="wrap">' +
+      return '<section' + id + ' class="' + themeClass(b.theme) + '"><div class="wrap">' +
         '<div class="split' + (b.imageSide === "left" ? " rev" : "") + '">' + txt + media + "</div></div></section>";
     },
 
@@ -189,11 +190,12 @@
 
     newslist: function (b) {
       return '<section class="' + themeClass(b.theme) + '"><div class="wrap">' + secHead(b) +
-        '<div class="cards" data-gt-news></div>' + centerBtn(b.btnText, b.btnLink) + "</div></section>";
+        '<div data-gt-news></div>' + centerBtn(b.btnText, b.btnLink) + "</div></section>";
     },
 
     text: function (b) {
-      return '<section class="' + themeClass(b.theme) + '"><div class="wrap"><div class="gt-text" style="max-width:860px;margin:0 auto">' +
+      var id = b.anchor ? ' id="' + esc(b.anchor) + '"' : "";
+      return '<section' + id + ' class="' + themeClass(b.theme) + '"><div class="wrap"><div class="gt-text" style="max-width:860px;margin:0 auto">' +
         secHead(b) + paras(b.body) + "</div></div></section>";
     },
 
@@ -409,10 +411,59 @@
   function fillNews(arr) {
     if (!arr) return;
     var hosts = document.querySelectorAll("[data-gt-news]");
-    var html = arr.map(function (n) {
-      return cardHTML({ kicker: n.date, title: n.title, text: n.body, icon: "📰" });
+    if (!hosts || !hosts.length) return;
+
+    var cats = [];
+    arr.forEach(function (n) {
+      var c = (n.category || "").trim().toLowerCase();
+      if (c && cats.indexOf(c) < 0) cats.push(c);
+    });
+    var fcount = Math.min(6, arr.length);
+
+    var cardsHTML = arr.map(function (n, i) {
+      var cat = (n.category || "").trim().toLowerCase();
+      var feat = i < fcount ? ' data-featured="1"' : ' data-featured="0"';
+      var hide = i < fcount ? "" : ' style="display:none"';
+      var kicker = esc(n.category || n.date || "");
+      var icon = n.icon ? '<div class="thumb thumb-emoji">' + esc(n.icon) + "</div>" : "";
+      var more = n.readMore
+        ? '<a class="read-more" style="display:inline-block;margin-top:8px;color:var(--blue);font-weight:600" href="' + esc(n.readMore) + '">Read guide &rarr;</a>'
+        : "";
+      return '<div class="card" data-cat="' + esc(cat) + '"' + feat + hide + '>' + icon + '<div class="body"><div class="k">' + kicker + "</div>" +
+        "<h3>" + esc(n.title || "") + "</h3><p>" + nl2br(n.body || "") + "</p>" + more + "</div></div>";
     }).join("");
-    for (var i = 0; i < hosts.length; i++) hosts[i].innerHTML = html;
+
+    var bar = '<div class="news-filter">';
+    bar += '<button type="button" class="nf-btn active" data-cat="featured">Featured</button>';
+    bar += '<button type="button" class="nf-btn" data-cat="all">All</button>';
+    cats.forEach(function (c) {
+      bar += '<button type="button" class="nf-btn" data-cat="' + esc(c) + '">' + esc(c.charAt(0).toUpperCase() + c.slice(1)) + "</button>";
+    });
+    bar += "</div>";
+
+    for (var i = 0; i < hosts.length; i++) {
+      var host = hosts[i];
+      host.innerHTML = bar + '<div class="news-cards cards">' + cardsHTML + "</div>";
+
+      // 交互筛选：仅在真实浏览器中绑定（测试用的假 DOM 无 addEventListener）
+      if (host.addEventListener) {
+        host.addEventListener("click", function (e) {
+          var btn = e.target && e.target.closest ? e.target.closest(".nf-btn") : null;
+          if (!btn) return;
+          var cat = btn.getAttribute("data-cat");
+          var all = host.querySelectorAll(".nf-btn");
+          for (var k = 0; k < all.length; k++) all[k].classList.remove("active");
+          btn.classList.add("active");
+          var cards = host.querySelectorAll(".card");
+          for (var m = 0; m < cards.length; m++) {
+            var cd = cards[m];
+            if (cat === "all") cd.style.display = "";
+            else if (cat === "featured") cd.style.display = cd.hasAttribute("data-featured") ? "" : "none";
+            else cd.style.display = (cd.getAttribute("data-cat") === cat) ? "" : "none";
+          }
+        });
+      }
+    }
   }
 
   /* ---------------- 启动 ---------------- */

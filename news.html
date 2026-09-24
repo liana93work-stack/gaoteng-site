@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>News | Gaoteng Energy</title>
+<title>Solar Guide | Gaoteng Energy</title>
 <link rel="stylesheet" href="styles.css" />
 <!-- ===== Google SEO & Analytics (replace placeholders) ===== -->
 <meta name="google-site-verification" content="REPLACE_WITH_YOUR_GSC_VERIFICATION_CODE" />
@@ -17,8 +17,7 @@
   "url":"https://gaoteng-site.pages.dev/",
   "logo":"https://gaoteng-site.pages.dev/logo.png",
   "email":"sales@gaoteng-energy.com",
-  "description":"Manufacturer of hybrid solar inverters, monocrystalline solar panels and LiFePO4 battery storage for homes, business and industry.",
-  "areaServed":["Nigeria","Kenya","India","Africa","Asia"]
+  "description":"Supplier and integrator of hybrid solar inverters, monocrystalline solar panels and LiFePO4 battery storage for homes, businesses and industry."
 }
 </script>
 </head>
@@ -29,7 +28,7 @@
   <div class="menu" id="menu">
     <a href="index.html">Home</a><a href="about.html">About</a><a href="products.html">Products</a>
     <a href="solutions.html">Solutions</a><a href="markets.html">Markets</a><a href="cases.html">Cases</a>
-    <a class="active" href="news.html">News</a><a class="cta" href="contact.html">Contact Us</a>
+    <a class="active" href="news.html">Solar Guide</a><a class="cta" href="contact.html">Contact Us</a>
   </div>
   <button class="hamb" onclick="document.getElementById('menu').style.display=(document.getElementById('menu').style.display==='flex'?'none':'flex')">☰</button>
 </nav></div></header>
@@ -37,28 +36,44 @@
 <!-- ===== 页面板块（由 content/pages/news.json 控制，可在后台增删/排序）===== -->
 <main id="gt-page" data-page="news">
 
-<section class="phead"><span class="arc"></span><div class="wrap"><div class="crumb">Home / News</div><h1>News &amp; Insights</h1><p>Product updates, market trends and energy storage tips.</p></div></section>
+<section class="phead"><span class="arc"></span><div class="wrap"><div class="crumb">Home / Solar Guide</div><h1>Solar Guide &amp; Knowledge Base</h1><p>Practical, no-nonsense guides on solar panels, inverters and LiFePO4 storage — written to stay useful for years.</p></div></section>
 
 <section>
   <div class="wrap">
+    <div class="sec-head"><h2>Featured Guides</h2><p>Start here — six practical reads. Tap any card to jump to the full article below.</p></div>
     <div class="cards" id="news-list">
-      <div class="card"><div class="thumb"><svg width="120" height="120" viewBox="0 0 120 120"><rect x="20" y="24" width="80" height="72" rx="8" fill="#fff" stroke="#d5e0ee"/><rect x="32" y="38" width="56" height="8" rx="4" fill="#3aa0ff"/><rect x="32" y="56" width="44" height="6" rx="3" fill="#c6d4e6"/><rect x="32" y="70" width="52" height="6" rx="3" fill="#c6d4e6"/></svg></div><div class="body"><div class="k">Product</div><h3>New VS-B20 Rack Battery Released</h3><p>Our 20kWh rack battery is now shipping with an upgraded BMS and 6000+ cycle warranty.</p></div></div>
-      <div class="card"><div class="thumb"><svg width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="34" fill="none" stroke="#3aa0ff" stroke-width="4"/><path d="M60 40v20l14 10" stroke="#27c08a" stroke-width="4" fill="none"/></svg></div><div class="body"><div class="k">Guide</div><h3>How to Size a Home Battery</h3><p>A simple method to match battery capacity to your daily usage and backup needs.</p></div></div>
-      <div class="card"><div class="thumb"><svg width="120" height="120" viewBox="0 0 120 120"><path d="M20 90 L45 55 L70 70 L100 30" fill="none" stroke="#3aa0ff" stroke-width="4"/><circle cx="100" cy="30" r="5" fill="#27c08a"/></svg></div><div class="body"><div class="k">Market</div><h3>Solar Demand in Africa &amp; India</h3><p>Why storage demand keeps rising and what it means for homeowners and installers.</p></div></div>
+      <div class="card"><div class="thumb thumb-emoji">☀️</div><div class="body"><div class="k">Basics</div><h3>How a Solar + Battery System Works</h3><p>The four building blocks and how a typical day flows — panels, controller, battery, inverter.</p><a class="read-more" style="display:inline-block;margin-top:8px;color:var(--blue);font-weight:600" href="#art-1">Read guide →</a></div></div>
+      <div class="card"><div class="thumb thumb-emoji">🔋</div><div class="body"><div class="k">Batteries</div><h3>What Is LiFePO4 and Why It Lasts Longer</h3><p>Why lithium iron phosphate has become the standard for home storage over lead-acid.</p><a class="read-more" style="display:inline-block;margin-top:8px;color:var(--blue);font-weight:600" href="#art-2">Read guide →</a></div></div>
+      <div class="card"><div class="thumb thumb-emoji">⚡</div><div class="body"><div class="k">Inverters</div><h3>Off-Grid vs Grid-Tied vs Hybrid</h3><p>Pick the right inverter architecture for your grid and backup needs.</p><a class="read-more" style="display:inline-block;margin-top:8px;color:var(--blue);font-weight:600" href="#art-3">Read guide →</a></div></div>
+      <div class="card"><div class="thumb thumb-emoji">📐</div><div class="body"><div class="k">Sizing</div><h3>How to Size a Home Battery</h3><p>A step-by-step method using your real appliances and daily usage.</p><a class="read-more" style="display:inline-block;margin-top:8px;color:var(--blue);font-weight:600" href="#art-4">Read guide →</a></div></div>
+      <div class="card"><div class="thumb thumb-emoji">🌡️</div><div class="body"><div class="k">Hot Climate</div><h3>Protecting Batteries in Heat</h3><p>Practical installation tips for hot regions like Africa and India.</p><a class="read-more" style="display:inline-block;margin-top:8px;color:var(--blue);font-weight:600" href="#art-5">Read guide →</a></div></div>
+      <div class="card"><div class="thumb thumb-emoji">🛡️</div><div class="body"><div class="k">Buying</div><h3>How to Read a Warranty</h3><p>Why a bare '10 years' on the box tells you almost nothing.</p><a class="read-more" style="display:inline-block;margin-top:8px;color:var(--blue);font-weight:600" href="#art-6">Read guide →</a></div></div>
     </div>
   </div>
 </section>
 
+<section id="art-1" class="white"><div class="wrap"><div class="gt-text" style="max-width:860px;margin:0 auto"><div class="sec-head"><div class="kick">Basics</div><h2>How a Home Solar + Battery System Works</h2></div><p>A home solar + storage system turns sunlight into electricity you can use now and save for later. Understanding its four building blocks helps you choose the right parts and avoid costly mismatches.</p><p>Solar panels capture sunlight and produce direct current (DC) electricity. A charge controller — usually built into the inverter — regulates that flow so the battery charges safely.</p><p>The battery stores energy as DC for use when the sun is down or the grid fails. The inverter then converts DC into the alternating current (AC) your appliances use (230V/50Hz in most of Africa and India, 120V/60Hz in some regions).</p><p>A typical day: panels power your home first, any surplus charges the battery, and at night or during an outage the battery discharges back through the inverter. Size each part to match the others and you avoid wasted money or unexpected blackouts.</p></div></div></section>
+
+<section id="art-2" class="soft"><div class="wrap"><div class="split"><div><div class="kick" style="color:var(--blue);font-weight:800;letter-spacing:2px;font-size:13px">Batteries</div><h2>What Is LiFePO4 and Why It Lasts Longer</h2><p>For years lead-acid batteries dominated off-grid storage. Today lithium iron phosphate — LiFePO4, often written LFP — has become the standard for home systems, and for good reasons. It costs more upfront, but its lower cost per cycle over a long life usually makes it the cheaper choice in the end.</p><ul class="checks"><li>Cycle life: 2,000–6,000+ cycles vs roughly 500–1,000 for lead-acid</li><li>Safer chemistry: very stable, far less prone to overheating or thermal runaway</li><li>More usable capacity in less space and weight per kWh</li><li>Low self-discharge and essentially maintenance-free</li><li>Handles partial charging well, so you are not forced into full cycles</li></ul></div><div class="gt-media"><svg viewBox="0 0 400 430" width="100%" height="100%" role="img" aria-label="Battery storage"><defs><linearGradient id="b2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#c9d5e6"/></linearGradient></defs><rect x="120" y="40" width="160" height="350" rx="16" fill="url(#b2)" stroke="#e3eaf4"/><rect x="150" y="20" width="100" height="26" rx="6" fill="#0d2a4d"/><rect x="146" y="90" width="108" height="18" rx="4" fill="#27c08a"/><rect x="146" y="120" width="108" height="18" rx="4" fill="#27c08a"/><rect x="146" y="150" width="80" height="18" rx="4" fill="#3aa0ff"/><rect x="146" y="180" width="108" height="18" rx="4" fill="#27c08a"/><rect x="146" y="210" width="60" height="18" rx="4" fill="#3aa0ff"/><rect x="146" y="240" width="108" height="18" rx="4" fill="#27c08a"/><rect x="146" y="270" width="90" height="18" rx="4" fill="#3aa0ff"/><rect x="146" y="300" width="108" height="18" rx="4" fill="#27c08a"/></svg></div></div></div></section>
+
+<section id="art-3" class="white"><div class="wrap"><div class="gt-text" style="max-width:860px;margin:0 auto"><div class="sec-head"><div class="kick">Inverters</div><h2>Off-Grid vs Grid-Tied vs Hybrid Inverters</h2></div><p>An inverter is the brain of the system, but not all inverters work the same way. The three common types suit very different situations.</p><p>Grid-tied: connects to the utility grid and feeds surplus power back. It is the cheapest option and great where the grid is stable — but it shuts down automatically during a grid outage, so it provides no backup.</p><p>Off-grid: runs with no grid connection at all. The battery is central, and the system is sized for worst-case days. Best for remote homes and villages without reliable power.</p><p>Hybrid: combines both. It can prioritize solar → battery → grid, use the grid as a backup source, and often accept a generator input. For areas with frequent outages — common across parts of Africa and India — hybrid is usually the most practical choice.</p><p>Tip: 'hybrid' features vary a lot between products. Check whether it supports stacking (parallel units), generator start, and the backup switchover time before you buy.</p></div></div></section>
+
+<section id="art-4" class="white"><div class="wrap"><div class="gt-text" style="max-width:860px;margin:0 auto"><div class="sec-head"><div class="kick">Sizing</div><h2>How to Size a Home Battery (Step by Step)</h2></div><p>Sizing a battery is not guesswork. Follow five steps using your own real loads.</p><p>Step 1 — List essentials: fridge, lights, fans, router, TV, and anything you must keep running. Note each item's wattage (usually on a label).</p><p>Step 2 — Estimate daily energy: for each item, watts × hours used per day = watt-hours (Wh). Add them up to get your daily kWh.</p><p>Step 3 — Decide backup time: one day, two days, or more? Multiply your daily kWh by the number of days you want to cover.</p><p>Step 4 — Apply depth of discharge: LiFePO4 is safely usable to about 80%, so divide by 0.8. Battery capacity (Wh) ≈ daily kWh × backup days ÷ 0.8.</p><p>Step 5 — Match the inverter: its continuous wattage should exceed your peak load (everything on at once) by 20–30%. Size for essentials, not the whole house, to keep the system affordable.</p></div></div></section>
+
+<section id="art-5" class="white"><div class="wrap"><div class="gt-text" style="max-width:860px;margin:0 auto"><div class="sec-head"><div class="kick">Hot Climate</div><h2>Protecting Batteries in Hot Climates (Africa &amp; India)</h2></div><p>Heat is the quiet enemy of battery life. Roughly speaking, every 10°C above 25°C can halve a battery's expected cycle life. In hot regions this matters as much as the battery you buy.</p><p>Install in shade: never place batteries in direct sun or inside a sealed metal box. A ventilated, shaded enclosure is ideal.</p><p>Keep it cool: aim for 20–35°C. Allow airflow around the unit and avoid stacking it against inverters or charge controllers, which give off their own heat.</p><p>A small ventilation fan or louvered door helps in enclosed spaces. If you can monitor temperature, do — early heat is easier to fix than a failed bank.</p><p>For long idle periods, store at 50–80% charge rather than a full 100%. This is kinder to the cells than sitting fully charged for months.</p></div></div></section>
+
+<section id="art-6" class="white"><div class="wrap"><div class="gt-text" style="max-width:860px;margin:0 auto"><div class="sec-head"><div class="kick">Buying</div><h2>How to Read a Warranty — Don't Trust '10 Years'</h2></div><p>A '10-year warranty' printed on a box tells you almost nothing by itself. What matters is what the warranty actually guarantees.</p><p>Throughput: look for total energy the battery is guaranteed to deliver — often stated as a cycle count (e.g., 6,000 cycles) or a lifetime kWh figure. This is far more meaningful than years alone.</p><p>Capacity retention: a good warranty promises a minimum remaining capacity at the end of the term, commonly ≥80%.</p><p>Exclusions: read what is NOT covered — shipping, labor, misuse, flood, or grid events. A vague '10 years' that excludes everything is worthless.</p><p>Who honors it: confirm whether the manufacturer or the seller stands behind it, and for how long in your local market. A 10-year / 6,000-cycle / 80%-retention warranty from a responsive supplier beats a vague claim from an unknown brand.</p></div></div></section>
+
 <section class="band" style="padding:66px 0"><span class="globe"></span><div class="wrap">
-  <h2>Subscribe for Updates</h2><p>Get product news and energy tips — no spam.</p>
-  <a href="contact.html" class="btn light">SUBSCRIBE</a>
+  <h2>Need a recommendation for your site?</h2><p>Tell us your loads, location and budget — we will suggest a configuration that fits.</p>
+  <a href="contact.html" class="btn light">CONTACT US</a>
 </div></section>
 
 </main>
 
 <footer><div class="wrap"><div class="fgrid">
-  <div><a class="brand" href="index.html" style="margin-bottom:16px"><span class="mark"></span><span><b data-site="company">Gaoteng Energy</b><small data-site="tagline">Solar · Inverter · LiFePO4 Storage</small></span></a><p style="color:#8aa2c4" data-site="footerAbout">Reliable solar, inverter and LiFePO4 storage systems worldwide.</p></div>
-  <div><h4>Company</h4><a href="about.html">About Us</a><a href="cases.html">Cases</a><a href="news.html">News</a><a href="contact.html">Contact</a></div>
+  <div><a class="brand" href="index.html" style="margin-bottom:16px"><span class="mark"></span><span><b data-site="company">Gaoteng Energy</b><small data-site="tagline">Solar · Inverter · LiFePO4 Storage</small></span></a><p style="color:#8aa2c4" data-site="footerAbout">Reliable solar, inverter and LiFePO4 storage systems for homes, business and industry worldwide.</p></div>
+  <div><h4>Company</h4><a href="about.html">About Us</a><a href="cases.html">Cases</a><a href="news.html">Solar Guide</a><a href="contact.html">Contact</a></div>
   <div><h4>Products</h4><a href="products.html">Hybrid Inverter</a><a href="products.html">Solar Panel</a><a href="products.html">LiFePO4 Battery</a><a href="solutions.html">Solutions</a></div>
   <div><h4>Contact</h4><a href="#">📧 <span data-site="email">sales@gaoteng-energy.com</span></a><a href="#">☎ <span data-site="phone">+86 xxx xxxx xxxx</span></a><a href="#">📍 <span data-site="address">[Your City], China</span></a></div>
 </div><div class="fbottom"><span>© 2026 Gaoteng Energy. All rights reserved.</span><span>Privacy Policy · Terms of Service</span></div></div></footer>
