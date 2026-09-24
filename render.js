@@ -352,9 +352,25 @@
     var bg = (preset ? preset.bgColor : s.bgColor) || "#ffffff";
     RESOLVED = { primary: primary, navy: navy, bg: bg };
 
-    if (s.fontFamily) document.body.style.fontFamily = s.fontFamily;
-    if (s.fontSize) document.body.style.fontSize = s.fontSize + "px";
+    var globalFont = s.fontFamily || "'Segoe UI', Roboto, Helvetica, Arial, 'Microsoft YaHei', sans-serif";
+    var globalSize = s.fontSize || 16;
+    var typo = s.typo || {};
+    var tBody = typo.body || {}, tHead = typo.heading || {}, tNav = typo.nav || {}, tBtn = typo.button || {};
     document.body.style.background = bg;
+
+    /* 字体排版：全局字体/字号作为基础，typo 各分项可单独覆盖 */
+    root.style.setProperty("--font-base", globalFont);
+    root.style.setProperty("--font-body", tBody.bodyFont || globalFont);
+    root.style.setProperty("--font-head", tHead.headFont || globalFont);
+    var fsBody = tBody.bodySize || globalSize;
+    root.style.setProperty("--fs-body", fsBody + "px");
+    if (tHead.headSize) root.style.setProperty("--fs-head", tHead.headSize + "px");
+    if (tNav.navSize) root.style.setProperty("--fs-nav", tNav.navSize + "px");
+    if (tBtn.btnSize) root.style.setProperty("--fs-btn", tBtn.btnSize + "px");
+    if (tBody.bodyColor) root.style.setProperty("--c-body", tBody.bodyColor);
+    if (tHead.headColor) root.style.setProperty("--c-head", tHead.headColor);
+    if (tNav.navColor) root.style.setProperty("--c-nav", tNav.navColor);
+    if (tBtn.btnColor) root.style.setProperty("--c-btn", tBtn.btnColor);
 
     root.style.setProperty("--blue", primary);
     root.style.setProperty("--blue2", darken(primary, 0.15));
