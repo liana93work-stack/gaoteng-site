@@ -126,6 +126,7 @@ collections:
                     widget: "select"
                     default: "white"
                     options: [{ label: "白色", value: "white" }, { label: "浅灰底", value: "soft" }, { label: "深蓝底", value: "dark" }]
+                  - { label: "页面内锚点 id（如 art-2，用于指南页跳转；留空则无）", name: "anchor", widget: "string", required: false }
 
               - label: "⑥ 规格参数表格"
                 name: "table"
@@ -190,6 +191,7 @@ collections:
                   - { label: "小标题", name: "kicker", widget: "string", required: false }
                   - { label: "标题", name: "title", widget: "string", required: false }
                   - { label: "正文（空行分段）", name: "body", widget: "text" }
+                  - { label: "页面内锚点 id（如 art-1，用于指南页跳转；留空则无）", name: "anchor", widget: "string", required: false }
 
               - label: "⑩ 图片墙"
                 name: "gallery"
@@ -390,25 +392,27 @@ collections:
                 widget: "list"
                 field: { label: "参数", name: "item", widget: "string" }
 
-  # ---------- 新闻库 ----------
+  # ---------- 知识库 / Solar Guide ----------
   - name: "news"
-    label: "新闻 / 博客"
+    label: "知识库 / Solar Guide"
     files:
       - name: "news"
-        label: "新闻列表"
+        label: "指南文章"
         file: "content/news.json"
         format: json
         fields:
-          - label: "新闻"
+          - label: "指南文章"
             name: "items"
             widget: "list"
-            label_singular: "新闻"
+            label_singular: "文章"
             collapsed: true
             summary: "{{fields.title}}"
             fields:
-              - { label: "日期", name: "date", widget: "date" }
+              - { label: "分类标签（如 Basics / Batteries / Sizing）", name: "category", widget: "string" }
+              - { label: "图标 emoji（如 ☀️ 🔋 ⚡，留空用默认）", name: "icon", widget: "string", required: false }
               - { label: "标题", name: "title", widget: "string" }
-              - { label: "正文", name: "body", widget: "text" }
+              - { label: "摘要", name: "body", widget: "text" }
+              - { label: "阅读更多链接（页面内锚点，如 #art-1；留空不显示按钮）", name: "readMore", widget: "string", required: false }
 
   # ---------- 样式 ----------
   - name: "style"
