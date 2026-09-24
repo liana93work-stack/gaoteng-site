@@ -91,6 +91,14 @@ section{padding:76px 0}
 .dark .card{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.13)}
 .dark .card h3{color:#fff}.dark .card p,.dark .card ul{color:#b8cbe6}
 
+/* news filter (Solar Guide) */
+.news-filter{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 28px}
+.nf-btn{appearance:none;cursor:pointer;font:inherit;font-size:14px;font-weight:600;line-height:1.2;padding:7px 16px;border-radius:999px;border:1px solid var(--blue);background:transparent;color:var(--blue);transition:.15s}
+.nf-btn:hover{background:rgba(var(--blue-rgb),.12)}
+.nf-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.card[data-featured="1"]{border-top:3px solid var(--blue)}
+.news-cards.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+
 /* split feature */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
 .split h2{font-family:var(--font-head);font-size:calc(var(--fs-head) * 1.05);font-weight:800;margin-bottom:16px;color:var(--c-head)}
